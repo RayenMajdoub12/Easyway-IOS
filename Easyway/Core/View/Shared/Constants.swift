@@ -7,10 +7,13 @@
 import Foundation
 struct Fonts{
     static let Font1 = "Raleway-Bold"
+    static let Font2 = "Raleway-SemiBold"
 }
 struct Colors{
     static let  ColorPrimary = "PrimaryColor"
     static let  ColorSecondary = "SecondaryColor"
     static let  ColorSecondaryLight = "SecondaryLightColor"
+    static let  ColorLightGrey = "LightGrey"
+
 
 }
