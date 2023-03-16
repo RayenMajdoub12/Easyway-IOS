@@ -53,10 +53,10 @@ struct LoginPage: View {
                  
              }
              HStack
-             {Button
-                 {
-                     
-                 }label: {
+             {
+                 
+                 NavigationLink(destination: ForgetPage())
+ {
                      Text("Forgot password?")
                          .font( .custom(Fonts.Font2, size: 14))
                          .foregroundColor(Color(Colors.ColorSecondary))
@@ -72,7 +72,7 @@ struct LoginPage: View {
                  }.padding(.top,8)
                      .frame(maxWidth: .infinity,alignment: .trailing)
              }
-             NavigationLink(destination:HomePage())
+             NavigationLink(destination:DrawerView())
              {
                  Text("Login")
                      .font(.custom(Fonts.Font1, size: 20))

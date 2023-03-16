@@ -14,7 +14,8 @@ struct HomePage: View {
                                            latitudinalMeters: 10000,longitudinalMeters: 10000)
     @State var offset:CGFloat = 0
     var body: some View {
-        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
+        NavigationView{
+            ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea(.all,edges: .all)
             GeometryReader{
@@ -103,7 +104,8 @@ struct BottomSheet: View {
             .cornerRadius(15)
             
         
-    }
+    }}
+        
 }
 struct BlurView: UIViewRepresentable {
     let style :UIBlurEffect.Style

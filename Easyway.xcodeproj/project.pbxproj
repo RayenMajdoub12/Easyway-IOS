@@ -24,6 +24,11 @@
 		E13F3BBB29C1EFFA0091D1A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13F3BBA29C1EFFA0091D1A9 /* Preview Assets.xcassets */; };
 		E13F3BBD29C1EFFA0091D1A9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F3BBC29C1EFFA0091D1A9 /* Persistence.swift */; };
 		E13F3BC029C1EFFA0091D1A9 /* Easyway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E13F3BBE29C1EFFA0091D1A9 /* Easyway.xcdatamodeld */; };
+		E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590EC29C322B2005F981D /* ForgetPage.swift */; };
+		E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590EE29C322CA005F981D /* CodeVerifPage.swift */; };
+		E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F029C322DB005F981D /* NewPasswordPage.swift */; };
+		E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F229C323F1005F981D /* ForgetPasswordModel.swift */; };
+		E16590F929C33580005F981D /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F829C33580005F981D /* Drawer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		E13F3BBC29C1EFFA0091D1A9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E13F3BBF29C1EFFA0091D1A9 /* Easyway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Easyway.xcdatamodel; sourceTree = "<group>"; };
 		E13F3BD929C1FCE20091D1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E16590EC29C322B2005F981D /* ForgetPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPage.swift; sourceTree = "<group>"; };
+		E16590EE29C322CA005F981D /* CodeVerifPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifPage.swift; sourceTree = "<group>"; };
+		E16590F029C322DB005F981D /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
+		E16590F229C323F1005F981D /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
+		E16590F829C33580005F981D /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +86,6 @@
 				0F8559B03EF8D54731033133 /* Pods-Easyway.debug.xcconfig */,
 				94D6A56613005C9765B09B0C /* Pods-Easyway.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +97,10 @@
 				E13AF4A729C21CA0008DB2F0 /* LoginPage.swift */,
 				E13AF4AB29C2480B008DB2F0 /* RegisterPage.swift */,
 				E13AF4AF29C2509A008DB2F0 /* HomePage.swift */,
+				E16590EC29C322B2005F981D /* ForgetPage.swift */,
+				E16590EE29C322CA005F981D /* CodeVerifPage.swift */,
+				E16590F029C322DB005F981D /* NewPasswordPage.swift */,
+				E16590F829C33580005F981D /* Drawer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +211,7 @@
 			children = (
 				E13AF4A929C21F86008DB2F0 /* LoginModel.swift */,
 				E13AF4AD29C248D0008DB2F0 /* RegisterModel.swift */,
+				E16590F229C323F1005F981D /* ForgetPasswordModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -327,9 +341,14 @@
 				E13AF4A829C21CA0008DB2F0 /* LoginPage.swift in Sources */,
 				E13AF4AA29C21F86008DB2F0 /* LoginModel.swift in Sources */,
 				E13AF4AE29C248D0008DB2F0 /* RegisterModel.swift in Sources */,
+				E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */,
 				E13AF4AC29C2480B008DB2F0 /* RegisterPage.swift in Sources */,
+				E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */,
 				E13AF49C29C21B60008DB2F0 /* GetStarted.swift in Sources */,
+				E16590F929C33580005F981D /* Drawer.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,
+				E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */,
+				E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
