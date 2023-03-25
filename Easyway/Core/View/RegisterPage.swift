@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterPage: View {
     @StateObject var registerData: RegisterModel = RegisterModel()
+    @State private var showingLogin = false
 
     var body: some View {
         VStack{
@@ -43,6 +44,16 @@ struct RegisterPage: View {
                     }
                     HStack{
               
+                      TextField(
+                        "Enter your Username...",
+                        text: $registerData.username
+                      ).padding()
+                            .background()
+                            .cornerRadius(30)
+                            .padding(.top,20)
+                    }
+                    HStack{
+              
                       SecureField(
                         "Enter your Password...",
                         text: $registerData.password
@@ -53,22 +64,18 @@ struct RegisterPage: View {
                        
                         
                     }
-                    HStack{
-              
-                      SecureField(
-                        "Verify your Password...",
-                        text: $registerData.password
-                      ).padding()
-                            .background()
-                            .cornerRadius(30)
-                            .padding(.top,20)
-                       
-                        
-                    }
                  
-                    Button{
-                        registerData.Register()
-                    }label:{
+                    Button(
+                        action: {
+                            registerData.Register() { result in
+                                switch result {
+                                case .success(_):
+                                    showingLogin = true
+                                case .failure(let error):
+                                    print("Error: \(error)")
+                                }
+                            }
+                        },label:{
                         Text("Register")
                             .font(.custom(Fonts.Font1, size: 20))
                             .frame(maxWidth:  .infinity )
@@ -78,7 +85,10 @@ struct RegisterPage: View {
                             .cornerRadius(20)
                             .padding()
                     }
-                }
+                )}
+                .fullScreenCover(isPresented: $showingLogin, content: {
+                    LoginPage()
+                })
                 .padding(20)
                 
                 

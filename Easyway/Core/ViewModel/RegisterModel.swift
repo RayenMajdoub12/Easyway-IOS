@@ -11,14 +11,32 @@ class RegisterModel: ObservableObject {
 
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var verifpassword: String = ""
+    @Published var username: String = ""
+    @Published var errorMessage: String?
     @Published var showpassword: Bool = false
     @Published var reEnterPassword :String = ""
     @Published var showRenterPassword : Bool = false
+    @Published var registred = false
+
     
-    func Register()
+    func Register(completion: @escaping (Result<String, Error>) -> Void)
     {
+        UserController.shared.signup(user: User(id:"0",username:username,email:email,password:password)){ [weak self] result in
+        DispatchQueue.main.async {
+            switch result {
+            case .success(let token):
+                self?.registred = true
+                completion(.success(token))
+            case .failure(let error):
+                self?.errorMessage = error.localizedDescription
+                completion(.failure(error))
+            }
+        }
+    }
+}
         
     }
   
     
-}
+

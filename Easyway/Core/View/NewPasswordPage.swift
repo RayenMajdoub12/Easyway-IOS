@@ -70,6 +70,7 @@ struct NewPasswordPage: View {
             .frame(maxWidth: .infinity,maxHeight: .infinity)
             .background(Color(Colors.ColorLightGrey))
             .cornerRadius(30)
+            
               
         }.frame(maxWidth: .infinity ,maxHeight: .infinity)
                    .background(Color(Colors.ColorSecondary))

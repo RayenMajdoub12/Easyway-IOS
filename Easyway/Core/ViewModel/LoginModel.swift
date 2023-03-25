@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Combine
 class LoginModel: ObservableObject {
 
     @Published var email: String = ""
@@ -14,11 +14,28 @@ class LoginModel: ObservableObject {
     @Published var showpassword: Bool = false
     @Published var reEnterPassword :String = ""
     @Published var showRenterPassword : Bool = false
+    @Published var isLoggingIn = false
+    @Published var errorMessage: String?
+    @Published var loggedIn = false 
     
-    func Login()
-    {
-        
+    func login(completion: @escaping (Result<String, Error>) -> Void) {
+        UserController.shared.login(email: email, password: password) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let token):
+                    // Save token to UserDefaults or Keychain
+                    UserDefaults.standard.set(token, forKey: "jwtToken")
+                    self?.loggedIn = true
+                    completion(.success(token))
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
+                    completion(.failure(error))
+                }
+            }
+        }
     }
+
+    
     func Register()
     {
         

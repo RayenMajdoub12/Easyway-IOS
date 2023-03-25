@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LoginPage: View {
     @StateObject var loginData: LoginModel = LoginModel()
+    @State private var showingDrawerView = false
+    
+
     var body: some View {
  VStack{
             VStack{
@@ -31,32 +34,32 @@ struct LoginPage: View {
                  .frame(maxWidth:  .infinity )
                  .padding(.top,20.0)
              HStack{
-       
-               TextField(
-                 "Enter your Email...",
-                 text: $loginData.email
-               ).padding()
+                 
+                 TextField(
+                    "Enter your Email...",
+                    text: $loginData.email
+                 ).padding()
                      .background()
                      .cornerRadius(30)
                      .padding(.top,20)
              }
              HStack{
-       
-               SecureField(
-                 "Enter your Password...",
-                 text: $loginData.password
-               ).padding()
+                 
+                 SecureField(
+                    "Enter your Password...",
+                    text: $loginData.password
+                 ).padding()
                      .background()
                      .cornerRadius(30)
                      .padding(.top,20)
-                
+                 
                  
              }
              HStack
              {
                  
                  NavigationLink(destination: ForgetPage())
- {
+                 {
                      Text("Forgot password?")
                          .font( .custom(Fonts.Font2, size: 14))
                          .foregroundColor(Color(Colors.ColorSecondary))
@@ -64,7 +67,7 @@ struct LoginPage: View {
                  }.padding(.top,8)
                      .frame(maxWidth: .infinity,alignment: .leading)
                  NavigationLink(destination: RegisterPage())
-             {
+                 {
                      Text("Create an account")
                          .font( .custom(Fonts.Font2, size: 14))
                          .foregroundColor(Color(Colors.ColorSecondary))
@@ -72,18 +75,33 @@ struct LoginPage: View {
                  }.padding(.top,8)
                      .frame(maxWidth: .infinity,alignment: .trailing)
              }
-             NavigationLink(destination:DrawerView())
-             {
-                 Text("Login")
-                     .font(.custom(Fonts.Font1, size: 20))
-                     .frame(maxWidth:  .infinity )
-                     .padding(.vertical,18)
-                     .foregroundColor(.white)
-                     .background(Color(Colors.ColorPrimary))
-                     .cornerRadius(20)
-                     .padding()
-             }
+             Button(
+                action: {
+                    loginData.login() { result in
+                        switch result {
+                        case .success(_):
+                            showingDrawerView = true
+                        case .failure(let error):
+                            print("Error: \(error)")
+                        }
+                    }
+                },label:
+                 {
+                     Text("Login")
+                         .font(.custom(Fonts.Font1, size: 20))
+                         .frame(maxWidth: .infinity)
+                         .padding(.vertical, 18)
+                         .foregroundColor(.white)
+                         .background(Color(Colors.ColorPrimary))
+                         .cornerRadius(20)
+                         .padding()
+                 } )
+             
          }
+         .fullScreenCover(isPresented: $showingDrawerView, content: {
+                     DrawerView()
+                 })
+
          .padding(20)
          
          

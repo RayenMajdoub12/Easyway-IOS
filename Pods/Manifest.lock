@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.6.4)
   - SwiftDrawer (5.0.2)
 
 DEPENDENCIES:
+  - Alamofire
   - SwiftDrawer
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - SwiftDrawer
 
 SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   SwiftDrawer: 2ed1b1e13fa46323bb04b6cc417c05edf51b1b4a
 
-PODFILE CHECKSUM: a041b7474e1937330e07e5e27aa86f42c3013b11
+PODFILE CHECKSUM: c36a613a5de86bf17e2339fef00ea85063faac29
 
 COCOAPODS: 1.11.3

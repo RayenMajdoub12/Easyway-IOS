@@ -7,5 +7,6 @@ target 'Easyway' do
 
   # Pods for Easyway
 	pod 'SwiftDrawer'
+  pod 'Alamofire'
 
 end
