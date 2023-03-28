@@ -6,38 +6,21 @@
 //
 
 import Foundation
-struct User: Codable, CustomStringConvertible,Identifiable
+struct User: Codable
 {
     
     let id: String
     let username: String
     let email: String
     let password: String
-    
     //  let image: Image?
-    var description: String
-    {
-        return "User : username = \(username)"
-    }
-    
-    
-    
+ 
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "_id"
         case username   	
         case email
         case password
         //   case image
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        id = try values.decode(String.self, forKey: .id)
-        username = try values.decode(String.self, forKey: .username)
-        email = try values.decode(String.self, forKey: .email)
-        password = try values.decode(String.self, forKey: .password)
-        
     }
     
     init( id: String, username: String, email: String, password: String){

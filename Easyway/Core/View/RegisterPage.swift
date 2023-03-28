@@ -68,6 +68,8 @@ struct RegisterPage: View {
                     Button(
                         action: {
                             registerData.Register() { result in
+                                print(result)
+                                print(registerData.username)
                                 switch result {
                                 case .success(_):
                                     showingLogin = true

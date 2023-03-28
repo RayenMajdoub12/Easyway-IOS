@@ -21,7 +21,7 @@ struct HomePage: View {
             GeometryReader{
                 reader in
                 VStack{
-                   
+                    
                     BottomSheet()
                         .offset(y:reader.frame(in: .global).height-120)
                         .offset(y:offset)

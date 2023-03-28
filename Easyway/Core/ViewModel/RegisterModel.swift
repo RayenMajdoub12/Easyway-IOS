@@ -25,9 +25,10 @@ class RegisterModel: ObservableObject {
         UserController.shared.signup(user: User(id:"0",username:username,email:email,password:password)){ [weak self] result in
         DispatchQueue.main.async {
             switch result {
-            case .success(let token):
+            case .success(let message):
+                print(message)
                 self?.registred = true
-                completion(.success(token))
+                completion(.success(message))
             case .failure(let error):
                 self?.errorMessage = error.localizedDescription
                 completion(.failure(error))

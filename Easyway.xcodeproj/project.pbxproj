@@ -31,6 +31,15 @@
 		E16590F929C33580005F981D /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F829C33580005F981D /* Drawer.swift */; };
 		E1B896B429CE544600E07462 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B896B329CE544600E07462 /* UserController.swift */; };
 		E1C0A85229CC767D00258D82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0A85129CC767D00258D82 /* User.swift */; };
+		E1EFBD9629D259B000576B6C /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9529D259B000576B6C /* Vehicle.swift */; };
+		E1EFBD9829D25A2400576B6C /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9729D25A2400576B6C /* Voyage.swift */; };
+		E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9929D25B7400576B6C /* SeatFormation.swift */; };
+		E1EFBD9E29D25E2800576B6C /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9D29D25E2800576B6C /* Reservation.swift */; };
+		E1EFBDA029D2601C00576B6C /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9F29D2601C00576B6C /* VehicleController.swift */; };
+		E1EFBDA229D2602A00576B6C /* VoyageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA129D2602A00576B6C /* VoyageController.swift */; };
+		E1EFBDA429D2604600576B6C /* SeatFormationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA329D2604600576B6C /* SeatFormationController.swift */; };
+		E1EFBDA629D268D700576B6C /* VoyageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA529D268D700576B6C /* VoyageModel.swift */; };
+		E1EFBDAA29D26AA600576B6C /* ReservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA929D26AA600576B6C /* ReservationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +71,15 @@
 		E16590F829C33580005F981D /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 		E1B896B329CE544600E07462 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E1C0A85129CC767D00258D82 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1EFBD9529D259B000576B6C /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		E1EFBD9729D25A2400576B6C /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
+		E1EFBD9929D25B7400576B6C /* SeatFormation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFormation.swift; sourceTree = "<group>"; };
+		E1EFBD9D29D25E2800576B6C /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		E1EFBD9F29D2601C00576B6C /* VehicleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleController.swift; sourceTree = "<group>"; };
+		E1EFBDA129D2602A00576B6C /* VoyageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageController.swift; sourceTree = "<group>"; };
+		E1EFBDA329D2604600576B6C /* SeatFormationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFormationController.swift; sourceTree = "<group>"; };
+		E1EFBDA529D268D700576B6C /* VoyageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageModel.swift; sourceTree = "<group>"; };
+		E1EFBDA929D26AA600576B6C /* ReservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +218,10 @@
 			isa = PBXGroup;
 			children = (
 				E1B896B329CE544600E07462 /* UserController.swift */,
+				E1EFBD9F29D2601C00576B6C /* VehicleController.swift */,
+				E1EFBDA129D2602A00576B6C /* VoyageController.swift */,
+				E1EFBDA329D2604600576B6C /* SeatFormationController.swift */,
+				E1EFBDA929D26AA600576B6C /* ReservationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -208,6 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				E1C0A85129CC767D00258D82 /* User.swift */,
+				E1EFBD9529D259B000576B6C /* Vehicle.swift */,
+				E1EFBD9729D25A2400576B6C /* Voyage.swift */,
+				E1EFBD9929D25B7400576B6C /* SeatFormation.swift */,
+				E1EFBD9D29D25E2800576B6C /* Reservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +244,7 @@
 				E13AF4A929C21F86008DB2F0 /* LoginModel.swift */,
 				E13AF4AD29C248D0008DB2F0 /* RegisterModel.swift */,
 				E16590F229C323F1005F981D /* ForgetPasswordModel.swift */,
+				E1EFBDA529D268D700576B6C /* VoyageModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,24 +366,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1EFBDA229D2602A00576B6C /* VoyageController.swift in Sources */,
+				E1EFBDAA29D26AA600576B6C /* ReservationController.swift in Sources */,
 				E1B896B429CE544600E07462 /* UserController.swift in Sources */,
 				E13F3BBD29C1EFFA0091D1A9 /* Persistence.swift in Sources */,
 				E13AF4B029C2509A008DB2F0 /* HomePage.swift in Sources */,
+				E1EFBD9629D259B000576B6C /* Vehicle.swift in Sources */,
 				E13F3BB629C1EFF90091D1A9 /* ContentView.swift in Sources */,
 				E13F3BB429C1EFF90091D1A9 /* EasywayApp.swift in Sources */,
 				E13F3BC029C1EFFA0091D1A9 /* Easyway.xcdatamodeld in Sources */,
+				E1EFBDA629D268D700576B6C /* VoyageModel.swift in Sources */,
 				E13AF4A829C21CA0008DB2F0 /* LoginPage.swift in Sources */,
 				E13AF4AA29C21F86008DB2F0 /* LoginModel.swift in Sources */,
 				E1C0A85229CC767D00258D82 /* User.swift in Sources */,
+				E1EFBD9829D25A2400576B6C /* Voyage.swift in Sources */,
 				E13AF4AE29C248D0008DB2F0 /* RegisterModel.swift in Sources */,
+				E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */,
 				E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */,
+				E1EFBD9E29D25E2800576B6C /* Reservation.swift in Sources */,
 				E13AF4AC29C2480B008DB2F0 /* RegisterPage.swift in Sources */,
 				E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */,
 				E13AF49C29C21B60008DB2F0 /* GetStarted.swift in Sources */,
+				E1EFBDA429D2604600576B6C /* SeatFormationController.swift in Sources */,
 				E16590F929C33580005F981D /* Drawer.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,
 				E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */,
 				E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */,
+				E1EFBDA029D2601C00576B6C /* VehicleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

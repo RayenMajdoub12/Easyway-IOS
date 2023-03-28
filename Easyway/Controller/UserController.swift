@@ -11,7 +11,7 @@ import Alamofire
 class UserController {
     static let shared = UserController()
     
-    private let baseUrl = "http://172.17.0.195:3000/api/auth" // Replace with your server URL
+    private let baseUrl = "http://172.17.0.227:3000/api/auth" // Replace with your server URL
     
     private init() {}
     
@@ -21,6 +21,7 @@ class UserController {
         print(parameters)
 
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            print(response)
             switch response.result {
             case .success(let value):
                 if let dict = value as? [String: Any], let token = dict["token"] as? String {
@@ -44,13 +45,16 @@ class UserController {
         let url = "\(baseUrl)/register"
         let parameters: [String: Any] = ["username": user.username,"email": user.email,"password": user.password    ]
         print(parameters)
-        AF.request(url, method: .post, parameters: parameters).responseJSON { response in
+        AF.request(url, method: .post, parameters: parameters , encoding: JSONEncoding.default).responseJSON { response in
+            print(response)
             switch response.result {
             case .success(let message):
                 if let dict = message as? [String: Any], let message = dict["message"] as? String {
+                    print ("im in success")
                     print(message)
                     completion(.success(message))
                 } else {
+                    print("im in error ")
                     let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Response serialization failed"])
                     completion(.failure(error))
 
