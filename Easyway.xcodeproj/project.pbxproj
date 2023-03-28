@@ -40,6 +40,7 @@
 		E1EFBDA429D2604600576B6C /* SeatFormationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA329D2604600576B6C /* SeatFormationController.swift */; };
 		E1EFBDA629D268D700576B6C /* VoyageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA529D268D700576B6C /* VoyageModel.swift */; };
 		E1EFBDAA29D26AA600576B6C /* ReservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDA929D26AA600576B6C /* ReservationController.swift */; };
+		E1EFBDAC29D26E8F00576B6C /* VoyagesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBDAB29D26E8F00576B6C /* VoyagesPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		E1EFBDA329D2604600576B6C /* SeatFormationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFormationController.swift; sourceTree = "<group>"; };
 		E1EFBDA529D268D700576B6C /* VoyageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageModel.swift; sourceTree = "<group>"; };
 		E1EFBDA929D26AA600576B6C /* ReservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationController.swift; sourceTree = "<group>"; };
+		E1EFBDAB29D26E8F00576B6C /* VoyagesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyagesPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				E16590EE29C322CA005F981D /* CodeVerifPage.swift */,
 				E16590F029C322DB005F981D /* NewPasswordPage.swift */,
 				E16590F829C33580005F981D /* Drawer.swift */,
+				E1EFBDAB29D26E8F00576B6C /* VoyagesPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */,
 				E1EFBD9E29D25E2800576B6C /* Reservation.swift in Sources */,
 				E13AF4AC29C2480B008DB2F0 /* RegisterPage.swift in Sources */,
+				E1EFBDAC29D26E8F00576B6C /* VoyagesPage.swift in Sources */,
 				E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */,
 				E13AF49C29C21B60008DB2F0 /* GetStarted.swift in Sources */,
 				E1EFBDA429D2604600576B6C /* SeatFormationController.swift in Sources */,

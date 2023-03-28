@@ -32,11 +32,11 @@ struct Vehicle:  Codable {
 }
 public enum VehicleType:String, CodingKey
 {
-    case ALL = "ALL"
-    case BUS = "BUS"
-    case TRAIN = "TRAIN"
-    case BIKE = "BIKE"
-    case TAXI = "TAXI"
+    case ALL = "all"
+    case BUS = "bus"
+    case TRAIN = "train"
+    case BIKE = "bike"
+    case TAXI = "taxi"
        
        
 }

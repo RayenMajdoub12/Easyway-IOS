@@ -12,7 +12,7 @@ struct Voyage:  Codable {
     let vehicle: Vehicle
     let departurePoint: String
     let arrivalPoint: String
-    let departureDate: Date
+    let departureDate: String
     let arrivalDate: String
     let distance: Double
     let firstClassSeatPrice: Double
@@ -21,7 +21,7 @@ struct Voyage:  Codable {
     let available: [Bool]
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "_id"
         case vehicle
         case departurePoint = "DeparturePoint"
         case arrivalPoint = "ArrivalPoint"
@@ -35,7 +35,7 @@ struct Voyage:  Codable {
     }
     
 
-    init(id: String, vehicle: Vehicle, departurePoint: String, arrivalPoint: String, departureDate: Date, arrivalDate: String, distance: Double, firstClassSeatPrice: Double, economySeatPrice: Double, businessSeatPrice: Double, available: [Bool]) {
+    init(id: String, vehicle: Vehicle, departurePoint: String, arrivalPoint: String, departureDate: String, arrivalDate: String, distance: Double, firstClassSeatPrice: Double, economySeatPrice: Double, businessSeatPrice: Double, available: [Bool]) {
            self.id = id
            self.vehicle = vehicle
            self.departurePoint = departurePoint
