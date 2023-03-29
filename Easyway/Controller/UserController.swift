@@ -11,7 +11,7 @@ import Alamofire
 class UserController {
     static let shared = UserController()
     
-    private let baseUrl = "http://172.17.0.227:3000/api/auth" // Replace with your server URL
+    private let baseUrl = "\(Shared.sharedBaseUrl)/auth" // Replace with your server URL
     
     private init() {}
     

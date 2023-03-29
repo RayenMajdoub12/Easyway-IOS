@@ -29,6 +29,13 @@
 		E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F029C322DB005F981D /* NewPasswordPage.swift */; };
 		E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F229C323F1005F981D /* ForgetPasswordModel.swift */; };
 		E16590F929C33580005F981D /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F829C33580005F981D /* Drawer.swift */; };
+		E17183DB29D38E5800FC625E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17183DA29D38E5800FC625E /* Shared.swift */; };
+		E17183DD29D399EF00FC625E /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17183DC29D399EF00FC625E /* LottieView.swift */; };
+		E17183E029D3A4A400FC625E /* searching_places_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = E17183DF29D3A4A400FC625E /* searching_places_anim.json */; };
+		E17183E229D3A4AF00FC625E /* map_location.json in Resources */ = {isa = PBXBuildFile; fileRef = E17183E129D3A4AF00FC625E /* map_location.json */; };
+		E17183E429D3A4B500FC625E /* profile_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E17183E329D3A4B500FC625E /* profile_animation.json */; };
+		E17183E629D3A68600FC625E /* LottieNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17183E529D3A68600FC625E /* LottieNames.swift */; };
+		E17183E829D3A81F00FC625E /* home_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = E17183E729D3A81F00FC625E /* home_anim.json */; };
 		E1B896B429CE544600E07462 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B896B329CE544600E07462 /* UserController.swift */; };
 		E1C0A85229CC767D00258D82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0A85129CC767D00258D82 /* User.swift */; };
 		E1EFBD9629D259B000576B6C /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9529D259B000576B6C /* Vehicle.swift */; };
@@ -70,6 +77,13 @@
 		E16590F029C322DB005F981D /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
 		E16590F229C323F1005F981D /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		E16590F829C33580005F981D /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		E17183DA29D38E5800FC625E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		E17183DC29D399EF00FC625E /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		E17183DF29D3A4A400FC625E /* searching_places_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searching_places_anim.json; sourceTree = "<group>"; };
+		E17183E129D3A4AF00FC625E /* map_location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map_location.json; sourceTree = "<group>"; };
+		E17183E329D3A4B500FC625E /* profile_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = profile_animation.json; sourceTree = "<group>"; };
+		E17183E529D3A68600FC625E /* LottieNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieNames.swift; sourceTree = "<group>"; };
+		E17183E729D3A81F00FC625E /* home_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_anim.json; sourceTree = "<group>"; };
 		E1B896B329CE544600E07462 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E1C0A85129CC767D00258D82 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1EFBD9529D259B000576B6C /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -133,8 +147,10 @@
 		E13AF49D29C21B8C008DB2F0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E17183DE29D39E3C00FC625E /* LottieFiles */,
 				E13AF4A029C21BD7008DB2F0 /* Fonts */,
 				E13AF49E29C21BB7008DB2F0 /* Constants.swift */,
+				E17183DC29D399EF00FC625E /* LottieView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -225,6 +241,7 @@
 				E1EFBDA129D2602A00576B6C /* VoyageController.swift */,
 				E1EFBDA329D2604600576B6C /* SeatFormationController.swift */,
 				E1EFBDA929D26AA600576B6C /* ReservationController.swift */,
+				E17183DA29D38E5800FC625E /* Shared.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +267,18 @@
 				E1EFBDA529D268D700576B6C /* VoyageModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E17183DE29D39E3C00FC625E /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E17183E729D3A81F00FC625E /* home_anim.json */,
+				E17183E129D3A4AF00FC625E /* map_location.json */,
+				E17183E329D3A4B500FC625E /* profile_animation.json */,
+				E17183DF29D3A4A400FC625E /* searching_places_anim.json */,
+				E17183E529D3A68600FC625E /* LottieNames.swift */,
+			);
+			path = LottieFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,9 +342,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13F3BBB29C1EFFA0091D1A9 /* Preview Assets.xcassets in Resources */,
+				E17183E229D3A4AF00FC625E /* map_location.json in Resources */,
+				E17183E029D3A4A400FC625E /* searching_places_anim.json in Resources */,
 				E13AF4A529C21BE7008DB2F0 /* Raleway-Bold.ttf in Resources */,
 				E13AF4A629C21BE7008DB2F0 /* Raleway-Regular.ttf in Resources */,
 				E13F3BB829C1EFFA0091D1A9 /* Assets.xcassets in Resources */,
+				E17183E429D3A4B500FC625E /* profile_animation.json in Resources */,
+				E17183E829D3A81F00FC625E /* home_anim.json in Resources */,
 				E13AF4A429C21BE7008DB2F0 /* Raleway-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,11 +419,14 @@
 				E13AF4AE29C248D0008DB2F0 /* RegisterModel.swift in Sources */,
 				E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */,
 				E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */,
+				E17183DD29D399EF00FC625E /* LottieView.swift in Sources */,
 				E1EFBD9E29D25E2800576B6C /* Reservation.swift in Sources */,
+				E17183DB29D38E5800FC625E /* Shared.swift in Sources */,
 				E13AF4AC29C2480B008DB2F0 /* RegisterPage.swift in Sources */,
 				E1EFBDAC29D26E8F00576B6C /* VoyagesPage.swift in Sources */,
 				E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */,
 				E13AF49C29C21B60008DB2F0 /* GetStarted.swift in Sources */,
+				E17183E629D3A68600FC625E /* LottieNames.swift in Sources */,
 				E1EFBDA429D2604600576B6C /* SeatFormationController.swift in Sources */,
 				E16590F929C33580005F981D /* Drawer.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,

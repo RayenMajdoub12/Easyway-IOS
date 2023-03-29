@@ -11,7 +11,7 @@ import Alamofire
 class VehicleController {
     static let shared = VehicleController()
 
-    private let baseUrl = "http://172.17.0.227:3000/api/vehicles" // Replace with your server URL
+    private let baseUrl = "\(Shared.sharedBaseUrl)/vehicles" // Replace with your server URL
     
     func login(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
         let url = "\(baseUrl)/login"

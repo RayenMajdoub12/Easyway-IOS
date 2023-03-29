@@ -14,6 +14,8 @@ struct Colors{
     static let  ColorSecondary = "SecondaryColor"
     static let  ColorSecondaryLight = "SecondaryLightColor"
     static let  ColorLightGrey = "LightGrey"
-
+    static let  AccentDarkPink = "AccentPinkDark"
+    static let  Blue = "Blue"
 
 }
+

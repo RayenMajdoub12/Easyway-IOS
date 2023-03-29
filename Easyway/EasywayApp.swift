@@ -13,7 +13,7 @@ struct EasywayApp: App {
 
     var body: some Scene {
         WindowGroup {
-           VoyagesPage()
+           GetStarted()
         }
     }
 }

@@ -10,7 +10,7 @@ import Alamofire
 class ReservationController {
     static let shared = ReservationController()
     
-    private let baseUrl = "http://172.17.0.227:3000/api/reservation" // Replace with your server URL
+    private let baseUrl = "\(Shared.sharedBaseUrl)/reservation" // Replace with your server URL
     
     private init() {}
 }

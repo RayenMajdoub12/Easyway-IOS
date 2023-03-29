@@ -11,7 +11,7 @@ import Alamofire
 class VoyageController {
     static let shared = VoyageController()
     
-    private let baseUrl = "http://172.17.0.227:3000/api/voyage" // Replace with your server URL
+    private let baseUrl = "\(Shared.sharedBaseUrl)/voyage" // Replace with your server URL
     
     func getVoyages(type: String, departurePoint: String, arrivalPoint: String, completion: @escaping (Result<[Voyage], Error>) -> Void) {
         let url = "\(baseUrl)/allvoyages/\(type)/\(departurePoint)/\(arrivalPoint)"
