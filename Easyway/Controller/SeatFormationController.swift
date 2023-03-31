@@ -15,3 +15,4 @@ class SeatFormationController {
     
     private init() {}
 }
+

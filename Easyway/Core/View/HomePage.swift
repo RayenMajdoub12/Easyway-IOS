@@ -162,6 +162,7 @@ struct HomePage: View {
         @State private var from = ""
         @State private var to = ""
         @State private var showingVoyageView = false
+        
 
         var body: some View {
             
@@ -218,7 +219,7 @@ struct HomePage: View {
                 .padding(5)
                 .frame(height: 100)
                 .fullScreenCover(isPresented: $showingVoyageView, content: {
-                            VoyagesPage()
+                    TicketListPage(from: self.$from, to: self.$to)
                         })
             Spacer()
         }

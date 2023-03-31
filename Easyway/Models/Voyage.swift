@@ -8,17 +8,17 @@
 import Foundation
 
 struct Voyage:  Codable {
-    let id :String
-    let vehicle: Vehicle
-    let departurePoint: String
-    let arrivalPoint: String
-    let departureDate: String
-    let arrivalDate: String
-    let distance: Double
-    let firstClassSeatPrice: Double
-    let economySeatPrice: Double
-    let businessSeatPrice: Double
-    let available: [Bool]
+    var id :String
+    var vehicle: Vehicle
+    var departurePoint: String
+    var arrivalPoint: String
+    var departureDate: String
+    var arrivalDate: String
+    var distance: Double
+    var firstClassSeatPrice: Double
+    var economySeatPrice: Double
+    var businessSeatPrice: Double
+    var available: [Bool]
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -34,19 +34,24 @@ struct Voyage:  Codable {
         case available
     }
     
-
+    
     init(id: String, vehicle: Vehicle, departurePoint: String, arrivalPoint: String, departureDate: String, arrivalDate: String, distance: Double, firstClassSeatPrice: Double, economySeatPrice: Double, businessSeatPrice: Double, available: [Bool]) {
-           self.id = id
-           self.vehicle = vehicle
-           self.departurePoint = departurePoint
-           self.arrivalPoint = arrivalPoint
-           self.departureDate = departureDate
-           self.arrivalDate = arrivalDate
-           self.distance = distance
-           self.firstClassSeatPrice = firstClassSeatPrice
-           self.economySeatPrice = economySeatPrice
-           self.businessSeatPrice = businessSeatPrice
-           self.available = available
-       }
-
+        self.id = id
+        self.vehicle = vehicle
+        self.departurePoint = departurePoint
+        self.arrivalPoint = arrivalPoint
+        self.departureDate = departureDate
+        self.arrivalDate = arrivalDate
+        self.distance = distance
+        self.firstClassSeatPrice = firstClassSeatPrice
+        self.economySeatPrice = economySeatPrice
+        self.businessSeatPrice = businessSeatPrice
+        self.available = available
+    }
+    
 }
+let sampleTicketData: [Voyage] = [
+    Voyage(id: "qdsdsq", vehicle: Vehicle(id: "String", name: "String", type: "bus", gridformationid: "aaaa"), departurePoint: "ariana", arrivalPoint: "Tunis", departureDate: "aa", arrivalDate: "String", distance: 10.12, firstClassSeatPrice: 10, economySeatPrice: 10, businessSeatPrice: 10, available: [true,false,true,true,true])
+]
+
+
