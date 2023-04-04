@@ -65,5 +65,39 @@ class UserController {
             }
         }
     }
+    
+       func resetPassword(email: String, password: String, onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
+           let url = "\(baseUrl)/resetpassword"
+           AF.request(url,
+                      method: .post,
+                      parameters: ["email": email , "password" : password],
+                      encoding: JSONEncoding.default)
+               .validate(statusCode: 200..<401)
+               .validate(contentType: ["application/json"])
+               .responseJSON { response in
+                   switch response.result {
+                   case .success(let data):
+                       guard let jsonData = data as? [String: Any],
+                             let statusCode = response.response?.statusCode else {
+                           onFailure("Error", "something went wrong please try again")
+                           return
+                       }
+
+                       switch statusCode {
+                       case 200:
+                           onSuccess("Done", "your password has been successfully changed")
+                       case 400:
+                           onSuccess("Error", "something went wrong please try again")
+                       default:
+                            onFailure("Error", "something went wrong please try again")
+                                      
+                                   }
+                   case .failure(let error):
+                       print(error)
+                       onFailure("Error", "Network request failed")
+                   }
+               }
+       }
+
 
 }

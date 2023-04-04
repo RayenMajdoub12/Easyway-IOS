@@ -9,5 +9,8 @@ target 'Easyway' do
 	pod 'SwiftDrawer'
   pod 'Alamofire'
   pod 'lottie-ios'
+  pod 'ExytePopupView'
+
 
 end
+	

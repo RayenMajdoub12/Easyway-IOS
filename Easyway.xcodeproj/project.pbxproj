@@ -189,9 +189,7 @@
 				E13F3BD929C1FCE20091D1A9 /* Info.plist */,
 				E13F3BCA29C1F6F70091D1A9 /* Models */,
 				E13F3BC929C1F6ED0091D1A9 /* Controller */,
-				E13F3BC829C1F6CD0091D1A9 /* Extensions */,
 				E13F3BC729C1F6BD0091D1A9 /* Core */,
-				E13F3BC629C1F4940091D1A9 /* App */,
 				E13F3BB329C1EFF90091D1A9 /* EasywayApp.swift */,
 				E13F3BB529C1EFF90091D1A9 /* ContentView.swift */,
 				E13F3BB729C1EFFA0091D1A9 /* Assets.xcassets */,
@@ -210,13 +208,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E13F3BC629C1F4940091D1A9 /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		E13F3BC729C1F6BD0091D1A9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,13 +215,6 @@
 				E13F3BCB29C1F7950091D1A9 /* ViewModel */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		E13F3BC829C1F6CD0091D1A9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E13F3BC929C1F6ED0091D1A9 /* Controller */ = {
