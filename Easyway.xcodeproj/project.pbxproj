@@ -29,6 +29,7 @@
 		E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F029C322DB005F981D /* NewPasswordPage.swift */; };
 		E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F229C323F1005F981D /* ForgetPasswordModel.swift */; };
 		E16590F929C33580005F981D /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F829C33580005F981D /* Drawer.swift */; };
+		E16FBF0529DE668500347EC0 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16FBF0429DE668500347EC0 /* ProfilePage.swift */; };
 		E17183DB29D38E5800FC625E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17183DA29D38E5800FC625E /* Shared.swift */; };
 		E17183DD29D399EF00FC625E /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17183DC29D399EF00FC625E /* LottieView.swift */; };
 		E17183E029D3A4A400FC625E /* searching_places_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = E17183DF29D3A4A400FC625E /* searching_places_anim.json */; };
@@ -77,6 +78,7 @@
 		E16590F029C322DB005F981D /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
 		E16590F229C323F1005F981D /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		E16590F829C33580005F981D /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		E16FBF0429DE668500347EC0 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		E17183DA29D38E5800FC625E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		E17183DC29D399EF00FC625E /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		E17183DF29D3A4A400FC625E /* searching_places_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searching_places_anim.json; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				E16590F029C322DB005F981D /* NewPasswordPage.swift */,
 				E16590F829C33580005F981D /* Drawer.swift */,
 				E1F2C11229D634BA00CBC5B2 /* TicketListPage.swift */,
+				E16FBF0429DE668500347EC0 /* ProfilePage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				E17183E629D3A68600FC625E /* LottieNames.swift in Sources */,
 				E1EFBDA429D2604600576B6C /* SeatFormationController.swift in Sources */,
 				E1F2C11329D634BA00CBC5B2 /* TicketListPage.swift in Sources */,
+				E16FBF0529DE668500347EC0 /* ProfilePage.swift in Sources */,
 				E16590F929C33580005F981D /* Drawer.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,
 				E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */,

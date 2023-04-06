@@ -9,34 +9,65 @@ import SwiftUI
 import SwiftDrawer
 struct DrawerView: View {
     var body: some View {
-         Drawer()
-        .setSlider(view: SliderView(type: .leftRear))
-        .setMain(view: HomePage())
+        
+        Color(Colors.ColorLightGrey)
+                 .edgesIgnoringSafeArea(.all)
+                 // Add the drawer menu as an overlay
+                 .overlay(
+                     Drawer()
+                         .setSlider(view: SliderView(type: .leftRear))
+                         .setMain(view: ProfilePage())
+                 )
+
+        
+        
+        
+        
     }
 
 }
 struct SliderView : View, SliderProtocol {
     @EnvironmentObject public var drawerControl: DrawerControl
+
     let type: SliderType
     init(type: SliderType) {
-        self.type = type
+        self.type = type 
     }
     var body: some View {
-        
         VStack {
-        
-            SliderCell(imgName: "pencil", title: "Home").onTapGesture {
-              //  self.drawerControl.setMain(view: HomePage())
-                self.drawerControl.show(type: .leftRear, isShow: false)
-            }.onAppear {
+          Image("profilepic")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 200)
+                .padding(.top,40)
+                .padding(.bottom,10)
+          Text("Rayen.M")
+                .font(.custom(Fonts.Font1, size: 22))
+                .frame(maxWidth: .infinity ,alignment: .center)
+                .foregroundColor(Color(Colors.ColorSecondary))
+          
+     
+            VStack {
+                SliderCell(imgName: "person.circle.fill", title: "Profile").onTapGesture {
+                   self.drawerControl.setMain(view: ProfilePage())
+                    self.drawerControl.show(type: .leftRear, isShow: true)
+                }
+                .onAppear {
                     
-            }
-            
-            SliderCell(imgName: "gear", title: "Account").onTapGesture {
-               // self.drawerControl.setMain(view: LoginPage())
-                self.drawerControl.show(type: .leftRear, isShow: false)
-            }
+                }
+                Divider()
+                
+                SliderCell(imgName: "gear", title: "Account").onTapGesture {
+                    // self.drawerControl.setMain(view: LoginPage())
+                    self.drawerControl.show(type: .leftRear, isShow: false)
+                }
+            }.padding(10)
+            .background(.white)
+            .cornerRadius(20)
         }
+        .zIndex(2)
+        .ignoresSafeArea()
+        .background(Color(Colors.ColorLightGrey))
         
         
     }
@@ -48,10 +79,14 @@ struct SliderCell : View {
     var body: some View {
             HStack {
                 Image(systemName: self.img)
-                    .foregroundColor(Color(Colors.ColorSecondary)).frame(width: 35,height: 35,alignment: .center)
+                    .foregroundColor(Color(Colors.ColorSecondary)).frame(width: 35,height: 35,alignment: .leading)
                 Text(self.title).foregroundColor(Color(Colors.ColorSecondary)).multilineTextAlignment( .leading)
-                Spacer()
-            }.padding()
+               Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundColor(Color(Colors.ColorSecondary)).frame(width: 35,height: 35,alignment: .trailing)
+                    .padding(.trailing)
+            }.padding(3)
+        
     }
     
     init(imgName: String, title: String) {

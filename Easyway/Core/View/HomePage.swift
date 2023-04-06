@@ -10,6 +10,7 @@ import MapKit
 import SwiftDrawer
 
 struct HomePage: View {
+  @State var sheetIsPresented = false
     @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 13.086, longitude:80.2789),
                                            latitudinalMeters: 10000,longitudinalMeters: 10000)
     @State var offset:CGFloat = 0
@@ -60,6 +61,7 @@ struct HomePage: View {
                     }
                 }
                 .ignoresSafeArea(.all,edges: .bottom)
+             
             })
             
         }
@@ -269,6 +271,7 @@ struct BlurView: UIViewRepresentable {
 
 
 struct HomePage_Previews: PreviewProvider {
+    
     static var previews: some View {
         HomePage()
     }

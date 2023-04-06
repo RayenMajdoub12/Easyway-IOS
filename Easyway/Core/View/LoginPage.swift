@@ -11,9 +11,11 @@ struct LoginPage: View {
     @StateObject var loginData: LoginModel = LoginModel()
     @State private var showingDrawerView = false
     @State var showingPopup = false
+    @State var closeRetry = false
     @State var emailError = ""
     @State var passwordError = ""
     @State var choosePopupView :Int = 2
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
  VStack{
@@ -97,6 +99,8 @@ struct LoginPage: View {
                         }
                     }
                     else{
+                        passwordError = "Please enter your password"
+
                         showingPopup = true
                     }
                 },label:
@@ -113,7 +117,7 @@ struct LoginPage: View {
              
          }
          .fullScreenCover(isPresented: $showingDrawerView, content: {
-                     DrawerView()
+             DrawerView()
                  })
 
          .padding(20)
@@ -126,8 +130,9 @@ struct LoginPage: View {
        
  }.frame(maxWidth: .infinity ,maxHeight: .infinity)
             .background(Color(Colors.ColorSecondary))
-            .popup(isPresented: $showingPopup) {
+            .popup(isPresented: $showingPopup ) {
                 if choosePopupView == 1 {
+                    
                     VStack{
                         Image("airplainimage")
                             .resizable()
@@ -145,6 +150,8 @@ struct LoginPage: View {
                             .multilineTextAlignment(.center)
                         Button( action:{
                             showingDrawerView = true
+                            self.showingPopup = false
+                       
                         },label:{
                             Text("Continue")
                                 .font(.custom(Fonts.Font1, size: 20))
@@ -159,6 +166,7 @@ struct LoginPage: View {
                     } .frame(width: 300, height: 500)
                         .background(.white)
                         .cornerRadius(30.0)
+                        
                 }
                 else if choosePopupView == 2
                 {
@@ -179,7 +187,7 @@ struct LoginPage: View {
                             .frame(maxWidth:  .infinity )
                             .multilineTextAlignment(.center)
                         Button( action:{
-                            print(choosePopupView)
+                            self.showingPopup = false
                         },label:{
                             Text("Retry")
                                 .font(.custom(Fonts.Font1, size: 20))
@@ -195,9 +203,6 @@ struct LoginPage: View {
                         .background(.white)
                         .cornerRadius(30.0)
                 }
-            else {
-                Text("error")
-            }
                 
         } customize: {
             $0
@@ -206,6 +211,9 @@ struct LoginPage: View {
                   .animation(.spring())
                   .closeOnTapOutside(true)
                   .backgroundColor(.black.opacity(0.5))
+      
+            
+            
         }
     }
     

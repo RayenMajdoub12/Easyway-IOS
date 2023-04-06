@@ -9,7 +9,8 @@ import SwiftUI
 
 struct GetStarted: View {
     @State private var getStartedState : Bool = false
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         NavigationView{
             VStack{
@@ -22,7 +23,12 @@ struct GetStarted: View {
                     .frame(width: 320, height: 320)
                     .offset(x:-40,y:-120)
                 
-                NavigationLink(destination:LoginPage()){
+                Button(
+                    action: {
+                        getStartedState = true 
+                        dismiss()
+                    }, label:
+                {
                     Text("Get started")
                         .font(.custom(Fonts.Font1,size:18))
                         .fontWeight(.semibold)
@@ -33,7 +39,10 @@ struct GetStarted: View {
                         .foregroundColor( .white)
                         .cornerRadius(10)
                     
-                }
+                })
+                .fullScreenCover(isPresented: $getStartedState, content: {
+                    LoginPage()
+                        })
                 
                 .padding(.horizontal,30)
                 .offset(y:-60)
