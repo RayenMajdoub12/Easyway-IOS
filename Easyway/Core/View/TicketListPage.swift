@@ -11,7 +11,8 @@ struct TicketListPage: View {
     @Binding var from:String
     @Binding var to:String
     @StateObject private var viewModel = VoyageModel()
- 
+    @Environment(\.dismiss) var dismiss
+
     func dateTransformation(voyage: Voyage) -> Voyage {
         var v = voyage
         let sdf = DateFormatter()
@@ -29,6 +30,14 @@ struct TicketListPage: View {
     var body: some View {
         NavigationView {
             VStack{
+                Button(action:{
+                    dismiss()
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color(Colors.ColorSecondary)).frame(width: 25,height: 25,alignment: .leading)
+                })
+                .frame(maxWidth: .infinity)
+                .frame(alignment: .leading)
                 MyHorizontalScrollView()
                 List {
                     Section {

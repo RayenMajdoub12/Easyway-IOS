@@ -10,10 +10,18 @@ import SwiftUI
 @main
 struct EasywayApp: App {
     let persistenceController = PersistenceController.shared
-
+    private let defaults = UserDefaults.standard
     var body: some Scene {
         WindowGroup {
-           GetStarted()
+     
+            if(defaults.string(forKey: "jwtToken") == nil)
+            {
+                GetStarted()
+
+            }else
+            {
+                DrawerView()
+            }
         }
     }
 }

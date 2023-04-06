@@ -18,6 +18,7 @@ struct LoginPage: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
+        NavigationView{
  VStack{
             VStack{
                 Text("Welcome \nback")
@@ -216,7 +217,7 @@ struct LoginPage: View {
             
         }
     }
-    
+    }
   
     private func verify() -> Bool {
         var isValid = true

@@ -16,7 +16,7 @@ struct DrawerView: View {
                  .overlay(
                      Drawer()
                          .setSlider(view: SliderView(type: .leftRear))
-                         .setMain(view: ProfilePage())
+                         .setMain(view: HomePage())
                  )
 
         
@@ -28,7 +28,7 @@ struct DrawerView: View {
 }
 struct SliderView : View, SliderProtocol {
     @EnvironmentObject public var drawerControl: DrawerControl
-
+    @State var    showlogin = false
     let type: SliderType
     init(type: SliderType) {
         self.type = type 
@@ -50,7 +50,7 @@ struct SliderView : View, SliderProtocol {
             VStack {
                 SliderCell(imgName: "person.circle.fill", title: "Profile").onTapGesture {
                    self.drawerControl.setMain(view: ProfilePage())
-                    self.drawerControl.show(type: .leftRear, isShow: true)
+                    self.drawerControl.show(type: .leftRear, isShow: false)
                 }
                 .onAppear {
                     
@@ -61,6 +61,17 @@ struct SliderView : View, SliderProtocol {
                     // self.drawerControl.setMain(view: LoginPage())
                     self.drawerControl.show(type: .leftRear, isShow: false)
                 }
+                Divider()
+                SliderCell(imgName: "logout", title: "Logout").onTapGesture {
+                    // self.drawerControl.setMain(view: LoginPage())
+                     let defaults = UserDefaults.standard
+                    defaults.removeObject(forKey: "jwtToken")
+                  showlogin = true
+                 //   self.drawerControl.show(type: .leftRear, isShow: false)
+                }
+                .fullScreenCover(isPresented: $showlogin, content: {
+                   LoginPage()
+                        })
             }.padding(10)
             .background(.white)
             .cornerRadius(20)
