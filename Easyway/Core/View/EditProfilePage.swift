@@ -34,13 +34,13 @@ struct EditProfilePage: View {
                             .foregroundColor(.white)
                             .padding(30)
                         Spacer()
-                        
                     }.frame(height: 220)
                         .frame(maxWidth: .infinity)
                         .background(Color(Colors.ColorPrimary))
+         
                     Button(action:{
                         
-                        if( index < avatar_list.count)
+                        if( index < 5)
                         {
                             index += 1
                         }else
@@ -59,10 +59,13 @@ struct EditProfilePage: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 200)
-                        
                             .padding(.bottom,10)
                             .offset(y:70)
-                        Text("Tap to change your avatar")
+                        Text("Tap on the avatar to change it !")
+                            .font(.custom(Fonts.Font1, size: 16))
+                            .frame(maxWidth: .infinity ,alignment: .center)
+                            .foregroundColor(.white)
+                            .offset(y:70)
                     })
                 }
                 HStack{
@@ -135,7 +138,22 @@ struct EditProfilePage: View {
                     
                     
                 }.padding(15)
+                HStack{
+            Button(action:{
+                dismiss()
+            }, label: {
+                Text("Back to profile")
+                    .font(.custom(Fonts.Font1, size: 20))
+                    .frame(maxWidth: .infinity ,alignment: .center)
+                    .foregroundColor(Color(Colors.AccentDarkPink))
+                  
+            })
+                .padding(.top , 30)
+      
+            Spacer()
+        }.frame(maxWidth: .infinity)
                 
+                Spacer ()
             }  .alert(isPresented: $showAlert) {
                 Alert(title: Text("Save changes "), message: Text("You are about to save new informations !"), primaryButton: .destructive(Text("OK").foregroundColor(.red))
                       {
