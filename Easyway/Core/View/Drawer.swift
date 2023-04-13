@@ -25,13 +25,14 @@ struct SliderView : View, SliderProtocol {
     @State var    showlogin = false
     let type: SliderType
     @Environment(\.dismiss) var dismiss
+    private let userDeafaults = UserDefaults.standard
 
     init(type: SliderType) {
         self.type = type 
     }
     var body: some View {
         VStack {
-          Image("profilepic")
+          Image(userDeafaults.string(forKey: "profilepic")!)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 200)
