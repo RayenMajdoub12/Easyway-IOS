@@ -11,6 +11,8 @@ struct ProfilePage: View {
     @Environment(\.dismiss) var dismiss
     @State var showAlert = false
     @State var showlogin = false
+    @State var showeditProfile = false
+
     private let userDeafaults = UserDefaults.standard
     var body: some View {
         NavigationView{
@@ -32,7 +34,7 @@ struct ProfilePage: View {
                         .frame(maxWidth: .infinity)
                         .background(Color(Colors.ColorPrimary))
                     
-                    Image("profilepic")
+                    Image(userDeafaults.string(forKey: "profilepic")!)
                               .resizable()
                               .aspectRatio(contentMode: .fit)
                               .frame(height: 200)
@@ -44,7 +46,7 @@ struct ProfilePage: View {
                 HStack{
                     Spacer()
                     Button(action:{
-                        
+                            showeditProfile = true
                     },label: {
                         HStack{
                             Text("Edit")
@@ -56,7 +58,9 @@ struct ProfilePage: View {
                         }
                     }).padding(.top,30)
                         .padding(.trailing,20)
-                }
+                }.fullScreenCover(isPresented: $showeditProfile, content: {
+                    EditProfilePage()
+                         })
        
                     Text("Your information")
                     .font(.custom(Fonts.Font1, size: 26))
@@ -154,14 +158,4 @@ struct ProfilePage: View {
         }}
 }
 
-struct ProfilePage_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content:
-                {
-            ProfilePage()
-            GeometryReader{
-                reader in}
 
-        })
-    }
-}

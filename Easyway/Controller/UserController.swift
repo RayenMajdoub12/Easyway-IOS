@@ -10,7 +10,8 @@ import Alamofire
 
 class UserController {
     static let shared = UserController()
-    
+    let  userdefaults = UserDefaults.standard
+
     private let baseUrl = "\(Shared.sharedBaseUrl)/auth" // Replace with your server URL
     
     private init() {}
@@ -125,6 +126,31 @@ class UserController {
                    }
                }
        }
+    func updateProfile(username: String, password: String, completion: @escaping (Result<String, Error>) -> Void){
+        let url = "\(baseUrl)/updateProfile"
+        AF.request(url,
+                   method: .put,
+                   parameters: ["email": userdefaults.string(forKey: "email")! , "password" : password ,"username":username],
+                   encoding: JSONEncoding.default)
+            .responseJSON { response in
+                print(response)
+                switch response.result {
+                case .success(let message):
+                    if let dict = message as? [String: Any], let message = dict["message"] as? String {
+                        print ("im in success")
+                        print(message)
+                        completion(.success(message))
+                    } else {
+                        print("im in error ")
+                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Response serialization failed"])
+                        completion(.failure(error))
 
+
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
 
 }
