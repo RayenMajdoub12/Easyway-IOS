@@ -13,6 +13,7 @@ struct EditProfilePage: View {
 
     @State var showAlert = false
     @State var showlogin = false
+    @State var showEdit = false
     @State var profilepic = "profilepic"
     @State var usernametext = ""
     @State private var index = 0
@@ -161,14 +162,16 @@ struct EditProfilePage: View {
                     editData.updateProfile(){ result in
                         switch result {
                         case .success(_):
-                            dismiss()
+                            showEdit = true
                         case .failure(let error):
                             
                             print("Error: \(error)")
                         }
                     }
                 },secondaryButton: .cancel(Text("Cancel")))
-            }
+            } .fullScreenCover(isPresented: $showEdit, content: {
+                ProfilePage()
+                     })
         }
     }
 }

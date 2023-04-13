@@ -137,6 +137,7 @@ class UserController {
                 switch response.result {
                 case .success(let message):
                     if let dict = message as? [String: Any], let message = dict["message"] as? String {
+                        UserDefaults.standard.set(username, forKey: "username")
                         print ("im in success")
                         print(message)
                         completion(.success(message))
