@@ -9,6 +9,10 @@ import SwiftUI
 
 struct CodeVerifPage: View {
     @StateObject var forgetData: ForgetPasswordModel = ForgetPasswordModel()
+    @State private var showingNewPassword = false
+    @Binding var code:String
+    @Binding var email:String
+
     var body: some View {
         VStack{
                    VStack{
@@ -41,7 +45,14 @@ struct CodeVerifPage: View {
                             .padding(.top,20)
                     }
                    
-                    NavigationLink(destination:NewPasswordPage())
+                    Button(action:{
+                        if(forgetData.verifyCode(code: code))
+                        {
+                            showingNewPassword = true
+                            
+                        }
+                    }
+                           ,label:
                     {
                         Text("Verify")
                             .font(.custom(Fonts.Font1, size: 20))
@@ -51,10 +62,12 @@ struct CodeVerifPage: View {
                             .background(Color(Colors.ColorPrimary))
                             .cornerRadius(20)
                             .padding()
-                    }
+                    })
                 }
                 .padding(20)
-                
+                .fullScreenCover(isPresented: $showingNewPassword, content: {
+                    NewPasswordPage(email:$email)
+                        })
                 
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity)
@@ -66,8 +79,4 @@ struct CodeVerifPage: View {
            }
 }
 
-struct CodeVerifPage_Previews: PreviewProvider {
-    static var previews: some View {
-        CodeVerifPage()
-    }
-}
+

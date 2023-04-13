@@ -24,7 +24,6 @@ class LoginModel: ObservableObject {
                 switch result {
                 case .success(let token):
                     // Save token to UserDefaults or Keychain
-                    UserDefaults.standard.set(token, forKey: "jwtToken")
                     self?.loggedIn = true
                     completion(.success(token))
                 case .failure(let error):
@@ -33,16 +32,6 @@ class LoginModel: ObservableObject {
                 }
             }
         }
-    }
-
-    
-    func Register()
-    {
-        
-    }
-    func ForgotPassword()
-    {
-        
     }
     
 }

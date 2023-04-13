@@ -7,29 +7,25 @@
 
 import SwiftUI
 import SwiftDrawer
+
+
 struct DrawerView: View {
+    
     var body: some View {
-        
-        Color(Colors.ColorLightGrey)
-                 .edgesIgnoringSafeArea(.all)
-                 // Add the drawer menu as an overlay
-                 .overlay(
-                     Drawer()
+                 Drawer()
                          .setSlider(view: SliderView(type: .leftRear))
                          .setMain(view: HomePage())
-                 )
-
-        
-        
-        
-        
+     
     }
 
 }
 struct SliderView : View, SliderProtocol {
+    let userdefaults = UserDefaults.standard
     @EnvironmentObject public var drawerControl: DrawerControl
     @State var    showlogin = false
     let type: SliderType
+    @Environment(\.dismiss) var dismiss
+
     init(type: SliderType) {
         self.type = type 
     }
@@ -41,42 +37,32 @@ struct SliderView : View, SliderProtocol {
                 .frame(height: 200)
                 .padding(.top,40)
                 .padding(.bottom,10)
-          Text("Rayen.M")
+            Text(   userdefaults.string(forKey: "username") ?? "")
                 .font(.custom(Fonts.Font1, size: 22))
                 .frame(maxWidth: .infinity ,alignment: .center)
                 .foregroundColor(Color(Colors.ColorSecondary))
           
      
             VStack {
-                SliderCell(imgName: "person.circle.fill", title: "Profile").onTapGesture {
-                   self.drawerControl.setMain(view: ProfilePage())
-                    self.drawerControl.show(type: .leftRear, isShow: false)
+                SliderCell(imgName: "house.fill", title: "Home").onTapGesture {
+                    self.drawerControl.show(type: type, isShow: false)
+                    self.drawerControl.setMain(view: HomePage())
                 }
-                .onAppear {
-                    
+                SliderCell(imgName: "person.circle.fill", title: "Profile").onTapGesture {
+                    self.drawerControl.show(type: type, isShow: false)
+                    self.drawerControl.setMain(view: ProfilePage())
                 }
                 Divider()
                 
-                SliderCell(imgName: "gear", title: "Account").onTapGesture {
-                    // self.drawerControl.setMain(view: LoginPage())
-                    self.drawerControl.show(type: .leftRear, isShow: false)
+                SliderCell(imgName: "gear", title: "Settings").onTapGesture {
+     
                 }
-                Divider()
-                SliderCell(imgName: "logout", title: "Logout").onTapGesture {
-                    // self.drawerControl.setMain(view: LoginPage())
-                     let defaults = UserDefaults.standard
-                    defaults.removeObject(forKey: "jwtToken")
-                  showlogin = true
-                 //   self.drawerControl.show(type: .leftRear, isShow: false)
-                }
-                .fullScreenCover(isPresented: $showlogin, content: {
-                   LoginPage()
-                        })
+       
             }.padding(10)
             .background(.white)
             .cornerRadius(20)
+            Spacer()
         }
-        .zIndex(2)
         .ignoresSafeArea()
         .background(Color(Colors.ColorLightGrey))
         
@@ -106,9 +92,3 @@ struct SliderCell : View {
     }
 }
 
-
-struct DrawerView_Previews: PreviewProvider {
-    static var previews: some View {
-        DrawerView()
-    }
-}

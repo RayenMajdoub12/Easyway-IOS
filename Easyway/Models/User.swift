@@ -9,23 +9,23 @@ import Foundation
 struct User: Codable
 {
     
-    let id: String
+    let _id: String
     let username: String
     let email: String
     let password: String
     //  let image: Image?
  
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case username   	
-        case email
-        case password
+        case _id = "_id"
+        case username  = "username"
+        case email = "email"
+        case password = "password"
         //   case image
     }
     
     init( id: String, username: String, email: String, password: String){
         self.username = username
-        self.id = id
+        self._id = id
         self.email = email
         self.password = password
     }

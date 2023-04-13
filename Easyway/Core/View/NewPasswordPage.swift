@@ -9,6 +9,10 @@ import SwiftUI
 
 struct NewPasswordPage: View {
     @StateObject var forgetData: ForgetPasswordModel = ForgetPasswordModel()
+    @State private var showingNewPassword = false
+
+    @Binding var email:String
+
     var body: some View {
         VStack{
                    VStack{
@@ -51,8 +55,19 @@ struct NewPasswordPage: View {
                             .padding(.top,20)
                     }
                    
-                    NavigationLink(destination:HomePage())
-                    {
+                    Button(
+                        action:{
+                            forgetData.changePassword(email: email)
+                            { result in
+                                switch result {
+                                case .success(_):
+                                    showingNewPassword = true
+                                case .failure(let error):
+                                    print("Error: \(error)")
+                                }
+                            }
+                    },label:
+                            {
                         Text("Save")
                             .font(.custom(Fonts.Font1, size: 20))
                             .frame(maxWidth:  .infinity )
@@ -61,9 +76,12 @@ struct NewPasswordPage: View {
                             .background(Color(Colors.ColorPrimary))
                             .cornerRadius(20)
                             .padding()
-                    }
+                    })
                 }
                 .padding(20)
+                .fullScreenCover(isPresented: $showingNewPassword, content: {
+                    LoginPage()
+                        })
                 
                 
             }
@@ -77,8 +95,4 @@ struct NewPasswordPage: View {
            }
 }
 
-struct NewPasswordPage_Previews: PreviewProvider {
-    static var previews: some View {
-        NewPasswordPage()
-    }
-}
+

@@ -30,12 +30,18 @@ struct TicketListPage: View {
     var body: some View {
         NavigationView {
             VStack{
-                Button(action:{
-                    dismiss()
-                }, label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(Color(Colors.ColorSecondary)).frame(width: 25,height: 25,alignment: .leading)
-                })
+                HStack{
+                    Button(action:{
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(Color(Colors.ColorSecondary)).frame(width: 30,height: 30,alignment: .leading)
+                     
+                    })       .padding(.leading,30)
+                        .padding(.top , 20)
+                    Spacer()
+                }
+              
                 .frame(maxWidth: .infinity)
                 .frame(alignment: .leading)
                 MyHorizontalScrollView()
@@ -111,6 +117,9 @@ struct TicketListRowView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 8.0)
+        .onTapGesture {
+          
+        }
     }
     
 }
@@ -139,12 +148,12 @@ struct MyHorizontalScrollView: View {
                         selectedIndex = index
                     }) {
                         ButtonWithIcon(imageName: icons[index], isSelected: selectedIndex == index)
-                    }.cornerRadius(20)
+                    }.cornerRadius(10)
                         .padding()
                 }
             }
         }
-        .padding()
+        .padding(10)
     }
 }
 
