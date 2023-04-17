@@ -12,7 +12,7 @@ class VoyageModel: ObservableObject {
     @Published var voyagesloaded = false
     @Published var errorMessage: String?
     @Published var ticketList: [Voyage] = []
-
+    @Published var gridformation = SeatFormation()
     func GetVoyages(type:String ,departurePoint: String,arrivalPoint: String,completion: @escaping (Result<[Voyage], Error>) -> Void)
     {
         
@@ -34,4 +34,19 @@ class VoyageModel: ObservableObject {
         
         
     }
+    func getGridFormation(id:String,completion: @escaping (Result<SeatFormation, Error>) -> Void)
+    {
+        SeatFormationController.shared.getSeatFormation(id:id){ [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let formation):
+                    print(formation)
+                    self?.gridformation = formation
+                    completion(.success(formation))
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
+                    completion(.failure(error))
+                }
+            }
+        }}
 }

@@ -17,8 +17,11 @@ struct SeatFormation:Codable {
     let emptyRows: [Int]
     let emptyLines: [Int]
     
+    
+    
+    
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "_id"
         case businessClassSeats = "BusinessClassSeats"
         case firstClassSeats = "FirstClassSeats"
         case economyClassSeats = "EconomyClassSeats"
@@ -27,9 +30,7 @@ struct SeatFormation:Codable {
         case emptyRows = "EmptyRows"
         case emptyLines = "EmptyLines"
     }
-    
-
-    init(id: String, businessClassSeats: Int, firstClassSeats: Int, economyClassSeats: Int, fullRows: Int, fullLines: Int, emptyRows: [Int], emptyLines: [Int]) {
+    init(id: String = "", businessClassSeats: Int = 0, firstClassSeats: Int = 0, economyClassSeats: Int = 0, fullRows: Int = 0, fullLines: Int = 0, emptyRows: [Int] = [0], emptyLines: [Int] = [0])  {
          self.id = id
          self.businessClassSeats = businessClassSeats
          self.firstClassSeats = firstClassSeats

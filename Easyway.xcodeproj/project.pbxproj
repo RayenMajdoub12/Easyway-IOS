@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		8D9004D95C12904477B17FBD /* Pods_Easyway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AD1EBA32DE5DFB825686C3 /* Pods_Easyway.framework */; };
+		E10430F129ECAEC700E60A04 /* TicketDetailMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F029ECAEC700E60A04 /* TicketDetailMainView.swift */; };
+		E10430F429ECAF0700E60A04 /* TicketDetailTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F329ECAF0700E60A04 /* TicketDetailTopView.swift */; };
+		E10430F629ECAF2100E60A04 /* TicketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F529ECAF2100E60A04 /* TicketDetailView.swift */; };
+		E10430F829ECAF5100E60A04 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F729ECAF5100E60A04 /* BlockView.swift */; };
+		E10430FA29ECAF6C00E60A04 /* LREdgeCutShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F929ECAF6C00E60A04 /* LREdgeCutShapeView.swift */; };
+		E10430FC29ECAF8A00E60A04 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430FB29ECAF8A00E60A04 /* LineShape.swift */; };
+		E10430FE29ECAFA100E60A04 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430FD29ECAFA100E60A04 /* RoundedCorner.swift */; };
+		E104310029ECBA8F00E60A04 /* BookingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430FF29ECBA8F00E60A04 /* BookingPage.swift */; };
+		E104310329ECCAA200E60A04 /* SeatShaperLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104310229ECCAA200E60A04 /* SeatShaperLayer.swift */; };
 		E13AF49C29C21B60008DB2F0 /* GetStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AF49B29C21B60008DB2F0 /* GetStarted.swift */; };
 		E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AF49E29C21BB7008DB2F0 /* Constants.swift */; };
 		E13AF4A429C21BE7008DB2F0 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E13AF4A129C21BE7008DB2F0 /* Raleway-SemiBold.ttf */; };
@@ -57,6 +66,15 @@
 		0F8559B03EF8D54731033133 /* Pods-Easyway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easyway.debug.xcconfig"; path = "Target Support Files/Pods-Easyway/Pods-Easyway.debug.xcconfig"; sourceTree = "<group>"; };
 		59AD1EBA32DE5DFB825686C3 /* Pods_Easyway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easyway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D6A56613005C9765B09B0C /* Pods-Easyway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easyway.release.xcconfig"; path = "Target Support Files/Pods-Easyway/Pods-Easyway.release.xcconfig"; sourceTree = "<group>"; };
+		E10430F029ECAEC700E60A04 /* TicketDetailMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailMainView.swift; sourceTree = "<group>"; };
+		E10430F329ECAF0700E60A04 /* TicketDetailTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailTopView.swift; sourceTree = "<group>"; };
+		E10430F529ECAF2100E60A04 /* TicketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailView.swift; sourceTree = "<group>"; };
+		E10430F729ECAF5100E60A04 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		E10430F929ECAF6C00E60A04 /* LREdgeCutShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LREdgeCutShapeView.swift; sourceTree = "<group>"; };
+		E10430FB29ECAF8A00E60A04 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		E10430FD29ECAFA100E60A04 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		E10430FF29ECBA8F00E60A04 /* BookingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPage.swift; sourceTree = "<group>"; };
+		E104310229ECCAA200E60A04 /* SeatShaperLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatShaperLayer.swift; sourceTree = "<group>"; };
 		E13AF49B29C21B60008DB2F0 /* GetStarted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStarted.swift; sourceTree = "<group>"; };
 		E13AF49E29C21BB7008DB2F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E13AF4A129C21BE7008DB2F0 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -133,6 +151,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E10430EF29ECAEAC00E60A04 /* TicketDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E10430F029ECAEC700E60A04 /* TicketDetailMainView.swift */,
+				E10430F329ECAF0700E60A04 /* TicketDetailTopView.swift */,
+				E10430F529ECAF2100E60A04 /* TicketDetailView.swift */,
+				E10430F729ECAF5100E60A04 /* BlockView.swift */,
+				E10430F929ECAF6C00E60A04 /* LREdgeCutShapeView.swift */,
+				E10430FB29ECAF8A00E60A04 /* LineShape.swift */,
+				E10430FD29ECAFA100E60A04 /* RoundedCorner.swift */,
+			);
+			path = TicketDetails;
+			sourceTree = "<group>";
+		};
+		E104310129ECCA6C00E60A04 /* Seats */ = {
+			isa = PBXGroup;
+			children = (
+				E104310229ECCAA200E60A04 /* SeatShaperLayer.swift */,
+			);
+			path = Seats;
+			sourceTree = "<group>";
+		};
 		E13AF49A29C21B50008DB2F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +188,7 @@
 				E1F2C11229D634BA00CBC5B2 /* TicketListPage.swift */,
 				E16FBF0429DE668500347EC0 /* ProfilePage.swift */,
 				E1BCAD2629E7BBAC00865A60 /* EditProfilePage.swift */,
+				E10430FF29ECBA8F00E60A04 /* BookingPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +196,8 @@
 		E13AF49D29C21B8C008DB2F0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E104310129ECCA6C00E60A04 /* Seats */,
+				E10430EF29ECAEAC00E60A04 /* TicketDetails */,
 				E17183DE29D39E3C00FC625E /* LottieFiles */,
 				E13AF4A029C21BD7008DB2F0 /* Fonts */,
 				E13AF49E29C21BB7008DB2F0 /* Constants.swift */,
@@ -401,15 +444,22 @@
 				E13F3BBD29C1EFFA0091D1A9 /* Persistence.swift in Sources */,
 				E13AF4B029C2509A008DB2F0 /* HomePage.swift in Sources */,
 				E1BCAD2929E7D21700865A60 /* EditProfileModel.swift in Sources */,
+				E10430FE29ECAFA100E60A04 /* RoundedCorner.swift in Sources */,
 				E1EFBD9629D259B000576B6C /* Vehicle.swift in Sources */,
 				E13F3BB629C1EFF90091D1A9 /* ContentView.swift in Sources */,
+				E104310329ECCAA200E60A04 /* SeatShaperLayer.swift in Sources */,
+				E10430F129ECAEC700E60A04 /* TicketDetailMainView.swift in Sources */,
 				E13F3BB429C1EFF90091D1A9 /* EasywayApp.swift in Sources */,
 				E13F3BC029C1EFFA0091D1A9 /* Easyway.xcdatamodeld in Sources */,
 				E1EFBDA629D268D700576B6C /* VoyageModel.swift in Sources */,
 				E13AF4A829C21CA0008DB2F0 /* LoginPage.swift in Sources */,
+				E104310029ECBA8F00E60A04 /* BookingPage.swift in Sources */,
 				E13AF4AA29C21F86008DB2F0 /* LoginModel.swift in Sources */,
+				E10430F429ECAF0700E60A04 /* TicketDetailTopView.swift in Sources */,
 				E1C0A85229CC767D00258D82 /* User.swift in Sources */,
+				E10430F829ECAF5100E60A04 /* BlockView.swift in Sources */,
 				E1EFBD9829D25A2400576B6C /* Voyage.swift in Sources */,
+				E10430FC29ECAF8A00E60A04 /* LineShape.swift in Sources */,
 				E13AF4AE29C248D0008DB2F0 /* RegisterModel.swift in Sources */,
 				E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */,
 				E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */,
@@ -424,10 +474,12 @@
 				E1F2C11329D634BA00CBC5B2 /* TicketListPage.swift in Sources */,
 				E1BCAD2729E7BBAC00865A60 /* EditProfilePage.swift in Sources */,
 				E16FBF0529DE668500347EC0 /* ProfilePage.swift in Sources */,
+				E10430F629ECAF2100E60A04 /* TicketDetailView.swift in Sources */,
 				E16590F929C33580005F981D /* Drawer.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,
 				E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */,
 				E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */,
+				E10430FA29ECAF6C00E60A04 /* LREdgeCutShapeView.swift in Sources */,
 				E1EFBDA029D2601C00576B6C /* VehicleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
