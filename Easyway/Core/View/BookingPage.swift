@@ -22,6 +22,7 @@ struct BookingPage: View {
     }
     var body: some View {
         VStack{
+            Spacer()
             HStack{
                 Button(action:{
                     dismiss()
@@ -34,7 +35,7 @@ struct BookingPage: View {
                     
                 
                 Text ("Select Seats")
-                    .font(.title2)
+                    .font(.title)
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
                 Spacer()
@@ -56,7 +57,7 @@ struct BookingPage: View {
                 .frame(height: 400)
                 .background(.white)
                 .cornerRadius(30)
-                .padding()
+         
         
        
             HStack
@@ -79,15 +80,31 @@ struct BookingPage: View {
             }
            Divider()
             HStack{
-                Text("Total Price:")
-                    .font(.custom("Futura-Medium", size: 12, relativeTo: .headline)).padding(10)
-                Text("250 TND")
-                    .font(.custom("Futura-Medium", size: 12, relativeTo: .headline)).padding(10)
+                VStack{
+                    Text("Total Price:")
+                        .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
+                    Text("250 TND")
+                        .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10)
+                }
+                Spacer()
+                VStack{
                 Text("Number of seats:")
-                    .font(.custom("Futura-Medium", size: 12, relativeTo: .headline)).padding(10)
+                    .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
                 Text("5")
-                    .font(.custom("Futura-Medium", size: 12, relativeTo: .headline)).padding(10)
+                    .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10) }
             }
+            .padding()
+            Button(action:{
+                }
+            ,label: {Text("Purchase")
+                    .font(.custom(Fonts.Font1, size: 18))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .foregroundColor(.white)
+                    .background(Color(Colors.AccentDarkPink ))
+                    .cornerRadius(40)
+                    .padding(30)
+            })
             Spacer()
         }.background(.white)
         }

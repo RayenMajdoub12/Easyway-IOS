@@ -36,7 +36,7 @@ struct TicketDetailTopView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24.0)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color(Colors.AccentDarkPink))
                         .padding(.horizontal, 8.0)
                     Rectangle()
                         .fill(Color.teal)
