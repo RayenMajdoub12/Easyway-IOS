@@ -15,6 +15,7 @@ struct DrawerView: View {
                  Drawer()
                          .setSlider(view: SliderView(type: .leftRear))
                          .setMain(view: HomePage())
+        
      
     }
 

@@ -33,6 +33,8 @@
 		E13F3BBB29C1EFFA0091D1A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13F3BBA29C1EFFA0091D1A9 /* Preview Assets.xcassets */; };
 		E13F3BBD29C1EFFA0091D1A9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F3BBC29C1EFFA0091D1A9 /* Persistence.swift */; };
 		E13F3BC029C1EFFA0091D1A9 /* Easyway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E13F3BBE29C1EFFA0091D1A9 /* Easyway.xcdatamodeld */; };
+		E140955429F874AF00C61D3D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140955329F874AF00C61D3D /* LocationManager.swift */; };
+		E140955729F8AEC900C61D3D /* LocationSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140955629F8AEC900C61D3D /* LocationSearchModel.swift */; };
 		E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590EC29C322B2005F981D /* ForgetPage.swift */; };
 		E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590EE29C322CA005F981D /* CodeVerifPage.swift */; };
 		E16590F129C322DB005F981D /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16590F029C322DB005F981D /* NewPasswordPage.swift */; };
@@ -93,6 +95,8 @@
 		E13F3BBC29C1EFFA0091D1A9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E13F3BBF29C1EFFA0091D1A9 /* Easyway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Easyway.xcdatamodel; sourceTree = "<group>"; };
 		E13F3BD929C1FCE20091D1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E140955329F874AF00C61D3D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E140955629F8AEC900C61D3D /* LocationSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchModel.swift; sourceTree = "<group>"; };
 		E16590EC29C322B2005F981D /* ForgetPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPage.swift; sourceTree = "<group>"; };
 		E16590EE29C322CA005F981D /* CodeVerifPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifPage.swift; sourceTree = "<group>"; };
 		E16590F029C322DB005F981D /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				E13AF4A029C21BD7008DB2F0 /* Fonts */,
 				E13AF49E29C21BB7008DB2F0 /* Constants.swift */,
 				E17183DC29D399EF00FC625E /* LottieView.swift */,
+				E140955329F874AF00C61D3D /* LocationManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				E16590F229C323F1005F981D /* ForgetPasswordModel.swift */,
 				E1EFBDA529D268D700576B6C /* VoyageModel.swift */,
 				E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */,
+				E140955629F8AEC900C61D3D /* LocationSearchModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -474,8 +480,10 @@
 				E1F2C11329D634BA00CBC5B2 /* TicketListPage.swift in Sources */,
 				E1BCAD2729E7BBAC00865A60 /* EditProfilePage.swift in Sources */,
 				E16FBF0529DE668500347EC0 /* ProfilePage.swift in Sources */,
+				E140955429F874AF00C61D3D /* LocationManager.swift in Sources */,
 				E10430F629ECAF2100E60A04 /* TicketDetailView.swift in Sources */,
 				E16590F929C33580005F981D /* Drawer.swift in Sources */,
+				E140955729F8AEC900C61D3D /* LocationSearchModel.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,
 				E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */,
 				E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */,

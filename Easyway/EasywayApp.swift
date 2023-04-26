@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct EasywayApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject var searchlocationModel = LocationSearchModel()
+
     private let defaults = UserDefaults.standard
     var body: some Scene {
         WindowGroup {
@@ -21,6 +23,7 @@ struct EasywayApp: App {
             }else
             {
                 DrawerView()
+                    .environmentObject(searchlocationModel)
             }
         }
     }

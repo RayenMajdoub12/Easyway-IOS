@@ -11,14 +11,15 @@ import SwiftDrawer
 
 struct HomePage: View {
   @State var sheetIsPresented = false
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 13.086, longitude:80.2789),
-                                           latitudinalMeters: 10000,longitudinalMeters: 10000)
+    @State var tracking:MapUserTrackingMode = .follow
+    @State private var route: MKRoute?
+    @State private var annotation:MKPointAnnotation?
     @State var offset:CGFloat = 0
+   
     var body: some View {
         NavigationView{
             ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
-                Map(coordinateRegion: $region)
-                    .ignoresSafeArea(.all,edges: .all)
+                MapView()  .ignoresSafeArea(.all)
                 GeometryReader{
                     reader in
                     VStack{
@@ -66,9 +67,12 @@ struct HomePage: View {
             
         }
     }
+    
+    
     struct DefaultView: View {
-        @State var text = ""
+        @State var searchtext = ""
         @Binding var selectsheet:Int
+        @EnvironmentObject var searchviewModel : LocationSearchModel
         var body: some View {
             
             HStack(spacing: 15)
@@ -77,7 +81,7 @@ struct HomePage: View {
                     .font(.system(size: 22))
                     .foregroundColor(.gray)
                     .padding(.leading)
-                TextField("Search Place",text: $text)
+                TextField("Search Place",text: $searchviewModel.queryFragment)
                     .padding(.vertical,10)
                     .padding(.horizontal)
                     .background(BlurView(style: .systemMaterial))
@@ -145,10 +149,11 @@ struct HomePage: View {
             
             ScrollView(.vertical,showsIndicators: false,content: {
                 LazyVStack(alignment: .leading, spacing: 15,content: {
-                    ForEach(1...10, id:\.self){
-                        count in
-                        Text("Searched Place")
-                        
+                    ForEach(searchviewModel.results, id:\.self){
+                        result in
+                        searchCell(title: result.title, subtitle: result.subtitle).onTapGesture {
+                            searchviewModel.selectLocation(result)
+                        }
                     }
                 })
             }
@@ -159,9 +164,35 @@ struct HomePage: View {
             
         }
     }
+    struct searchCell : View{
+        let title :String
+        let subtitle :String
+        var body: some View
+        {
+            HStack
+            {
+                Image(systemName: "mappin.circle.fill")
+                    .resizable()
+                    .foregroundColor(Color(Colors.Blue))
+                    .accentColor(.white)
+                    .frame(width: 40,height: 40)
+                VStack(alignment: .leading)
+                {
+                    Text(title)
+                        .font(.body)
+                    Text(subtitle)
+                        .font(.system(size:15))
+                        .foregroundColor(.gray)
+                    Divider()
+                }.padding(.leading ,8)
+                    .padding(.vertical ,8)
+            }
+            .padding(.leading)
+        }
+    }
     
     struct GetMeSomewhere: View {
-        @State private var from = ""
+        @State private var from = "Current Location"
         @State private var to = ""
         @State private var showingVoyageView = false
         
@@ -268,7 +299,92 @@ struct BlurView: UIViewRepresentable {
         
     }
 }
+struct MapView : UIViewRepresentable
+{
+  let manager = LocationManager()
+let mapView = MKMapView()
+    @EnvironmentObject var locationviewModel : LocationSearchModel
+    func makeUIView(context: Context) -> some UIView {
+        mapView .delegate = context.coordinator
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        mapView.setRegion(manager.region, animated: true)
+        return mapView
+    }
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        if let selectedLocation = locationviewModel.selectedLocationCoordinate
+        {
+            context .coordinator.addAndSelectAnnotation(withCoordinate: selectedLocation)
+            context .coordinator.configurePolyline(withDestinationCoordinate: selectedLocation)
+            print("selected in mapview generator \(selectedLocation)")
+        }
+    }
+    func makeCoordinator() -> MapCoordinator {
+        return MapCoordinator(parent: self)
+    }
+}
+extension MapView {
+    class MapCoordinator:NSObject,MKMapViewDelegate
+    {
+        var userlocationCoordinate : CLLocationCoordinate2D?
+        let parent:MapView
+        init(parent: MapView) {
+            self.parent = parent
+            super.init()
+        }
+        func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            self.userlocationCoordinate = userLocation.coordinate
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            parent.mapView.setRegion(region, animated: true)
+        }
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let line = MKPolylineRenderer(overlay: overlay)
+            line.strokeColor = .systemBlue
+            line.lineWidth = 6
+            return line
+        }
+        func addAndSelectAnnotation(withCoordinate coordinate:CLLocationCoordinate2D)
+        {
+            parent.mapView.removeAnnotations(parent.mapView.annotations)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+           parent.mapView.addAnnotation(annotation)
+           parent.mapView.selectAnnotation(annotation, animated: true)
+            parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
+        }
+        func configurePolyline(withDestinationCoordinate coordinate : CLLocationCoordinate2D)
 
+        {
+            guard let userlocation = self.userlocationCoordinate else {return }
+            getDestinationRoute(from:userlocation , to: coordinate) { route in
+                self.parent.mapView.addOverlay(route.polyline)
+                //self.parent.
+            }
+        }
+        func getDestinationRoute(from userLocation:CLLocationCoordinate2D,to destination:CLLocationCoordinate2D,completion:@escaping(MKRoute)->Void)
+        {
+            let userPlaceMark = MKPlacemark(coordinate: userLocation)
+            let destPlaceMark = MKPlacemark(coordinate: destination)
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: userPlaceMark)
+            request.destination = MKMapItem(placemark: destPlaceMark)
+            request.transportType = .automobile
+            request.requestsAlternateRoutes = true
+            let directions = MKDirections(request: request)
+            directions.calculate{
+                response,error in
+                if let error = error {
+                    print("error in directions getdestinationRoute fnc \(error)")
+                    return
+                }
+                guard let route = response?.routes.first else {
+                    return
+                }
+                completion(route)
+            }
+        }
+    }
+}
 
 struct HomePage_Previews: PreviewProvider {
     

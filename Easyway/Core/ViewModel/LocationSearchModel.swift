@@ -1,0 +1,59 @@
+//
+//  LocationSearchModel.swift
+//  Easyway
+//
+//  Created by Rayen Majdoub on 26/4/2023.
+//
+
+import Foundation
+
+import MapKit
+
+class LocationSearchModel:NSObject,ObservableObject
+{
+    @Published var selectedLocation:String?
+    @Published var selectedLocationCoordinate: CLLocationCoordinate2D?
+    @Published var results = [MKLocalSearchCompletion]()
+    private let searchCompleter = MKLocalSearchCompleter()
+    var queryFragment:String = "" {
+        didSet {
+            searchCompleter.queryFragment = queryFragment
+            
+        }
+    }
+    override init() {
+        super.init()
+        searchCompleter.delegate = self
+        searchCompleter.queryFragment = queryFragment
+    }
+    func selectLocation(_ location:MKLocalSearchCompletion)
+    {
+        self.selectedLocation = location.title
+        print(self.selectedLocation)
+        locationSearch(forLocationSearchCompletion: location){
+            response,error in
+            if let error = error {
+                print("Error in SearchModel ; \(error.localizedDescription)")
+                return
+            }
+            guard let item = response?.mapItems.first else {return}
+            let coordinate = item.placemark.coordinate
+            self.selectedLocationCoordinate = coordinate
+            print("coordinates : \(coordinate)")
+
+        }   }
+    func locationSearch(forLocationSearchCompletion localSearch:MKLocalSearchCompletion,completion:@escaping MKLocalSearch.CompletionHandler)
+    {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = localSearch.title.appending(localSearch.subtitle)
+        let search = MKLocalSearch(request: searchRequest)
+        
+        search.start(completionHandler: completion)
+    }
+}
+extension LocationSearchModel : MKLocalSearchCompleterDelegate
+{
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        self.results = completer.results
+    }
+}

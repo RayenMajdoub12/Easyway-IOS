@@ -10,5 +10,7 @@
 		<string>Raleway-Regular.ttf</string>
 		<string>Raleway-SemiBold.ttf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow access to location ?</string>
 </dict>
 </plist>

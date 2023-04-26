@@ -8,5 +8,5 @@
 import Foundation
 
 struct Shared{
-    static let sharedBaseUrl = "http://172.17.0.128:3000/api"
+    static let sharedBaseUrl = "http://172.17.3.25:3000/api"
 }
