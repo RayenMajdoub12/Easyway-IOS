@@ -14,7 +14,7 @@ struct BookingPage: View {
     let seats :[Bool]
     let totalcolumns :Int
     @Environment(\.dismiss) var dismiss
-
+@State var showpaymentsheet = false
     init(gridformation: SeatFormation  ,voyage : Voyage) {
         self.gridformation = gridformation
         self.voyage = voyage
@@ -111,42 +111,74 @@ struct BookingPage: View {
                     .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10) }
             }
             .padding()
-            CheckoutView(amount:Double(selectedSeats.count) * voyage.economySeatPrice)
+         
+           if(selectedSeats.count * Int(voyage.economySeatPrice) > 1)
+            {
+               CheckoutView(amount:selectedSeats.count * Int(voyage.economySeatPrice))
+
+           }
+     
+            
+
+            
             Spacer()
         }.background(.white)
         }
     
     struct CheckoutView: View {
       @ObservedObject var model = MyBackendModel()
-        let amount:Double
-      var body: some View {
-        VStack {
-          if let paymentSheet = model.paymentSheet {
-            PaymentSheet.PaymentButton(
-              paymentSheet: paymentSheet,
-              onCompletion: model.onPaymentCompletion
-            ) {
-                Text("Purchase")
-                        .font(.custom(Fonts.Font1, size: 18))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .foregroundColor(.white)
-                        .background(Color(Colors.AccentDarkPink ))
-                        .cornerRadius(40)
-                        .padding(30)
-
-            }
-          } else {
-            Text("Loading…")
-                      .font(.custom(Fonts.Font1, size: 18))
-                      .frame(maxWidth: .infinity)
-                      .padding(.vertical, 16)
-                      .foregroundColor(.white)
-                      .background(Color(Colors.AccentDarkPink ))
-                      .cornerRadius(40)
-                      .padding(30)
-
-          }
+         var amount:Int
+        @State  var selecting = true
+        var body: some View {
+            VStack {
+                if selecting
+                {
+                    Button(action: {
+                        selecting = false
+                    }, label: {
+                        
+                        Text("Select")
+                            .font(.custom(Fonts.Font1, size: 18))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .foregroundColor(.white)
+                            .background(Color(Colors.AccentDarkPink ))
+                            .cornerRadius(40)
+                            .padding(30)
+                    })
+                           }
+                           
+                else
+                {
+                    if let paymentSheet = model.paymentSheet {
+                        PaymentSheet.PaymentButton(
+                            paymentSheet: paymentSheet,
+                            onCompletion: model.onPaymentCompletion
+                        ) {
+                            Text("Purchase")
+                                .font(.custom(Fonts.Font1, size: 18))
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 16)
+                                .foregroundColor(.white)
+                                .background(Color(Colors.AccentDarkPink ))
+                                .cornerRadius(40)
+                                .padding(30)
+                            
+                        }
+                    } else {
+                        Text("Loading…")
+                            .font(.custom(Fonts.Font1, size: 18))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .foregroundColor(.white)
+                            .background(Color(Colors.AccentDarkPink ))
+                            .cornerRadius(40)
+                            .padding(30)
+                        
+                    }
+                }
+            
+            
           if let result = model.paymentResult {
             switch result {
             case .completed:
