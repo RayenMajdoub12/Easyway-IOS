@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D9004D95C12904477B17FBD /* Pods_Easyway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AD1EBA32DE5DFB825686C3 /* Pods_Easyway.framework */; };
+		E100293929FA017C009DB48C /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100293829FA017C009DB48C /* PaymentModel.swift */; };
 		E10430F129ECAEC700E60A04 /* TicketDetailMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F029ECAEC700E60A04 /* TicketDetailMainView.swift */; };
 		E10430F429ECAF0700E60A04 /* TicketDetailTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F329ECAF0700E60A04 /* TicketDetailTopView.swift */; };
 		E10430F629ECAF2100E60A04 /* TicketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10430F529ECAF2100E60A04 /* TicketDetailView.swift */; };
@@ -68,6 +69,7 @@
 		0F8559B03EF8D54731033133 /* Pods-Easyway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easyway.debug.xcconfig"; path = "Target Support Files/Pods-Easyway/Pods-Easyway.debug.xcconfig"; sourceTree = "<group>"; };
 		59AD1EBA32DE5DFB825686C3 /* Pods_Easyway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easyway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D6A56613005C9765B09B0C /* Pods-Easyway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easyway.release.xcconfig"; path = "Target Support Files/Pods-Easyway/Pods-Easyway.release.xcconfig"; sourceTree = "<group>"; };
+		E100293829FA017C009DB48C /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		E10430F029ECAEC700E60A04 /* TicketDetailMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailMainView.swift; sourceTree = "<group>"; };
 		E10430F329ECAF0700E60A04 /* TicketDetailTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailTopView.swift; sourceTree = "<group>"; };
 		E10430F529ECAF2100E60A04 /* TicketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailView.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				E1EFBDA529D268D700576B6C /* VoyageModel.swift */,
 				E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */,
 				E140955629F8AEC900C61D3D /* LocationSearchModel.swift */,
+				E100293829FA017C009DB48C /* PaymentModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				E140955729F8AEC900C61D3D /* LocationSearchModel.swift in Sources */,
 				E13AF49F29C21BB7008DB2F0 /* Constants.swift in Sources */,
 				E16590ED29C322B2005F981D /* ForgetPage.swift in Sources */,
+				E100293929FA017C009DB48C /* PaymentModel.swift in Sources */,
 				E16590F329C323F1005F981D /* ForgetPasswordModel.swift in Sources */,
 				E10430FA29ECAF6C00E60A04 /* LREdgeCutShapeView.swift in Sources */,
 				E1EFBDA029D2601C00576B6C /* VehicleController.swift in Sources */,

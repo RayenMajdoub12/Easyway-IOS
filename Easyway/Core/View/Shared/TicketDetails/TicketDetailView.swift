@@ -86,7 +86,7 @@ struct TicketDetailView: View {
         }
         .fullScreenCover(isPresented: $showBookingpage) {
     
-            BookingPage(gridformation: viewModel.gridformation)
+            BookingPage(gridformation: viewModel.gridformation , voyage: ticketInfo)
         }
     }
 }

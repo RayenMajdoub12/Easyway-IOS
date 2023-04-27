@@ -178,12 +178,24 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ExytePopupView/ExytePopupView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripeApplePay/StripeApplePay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripeCore/StripeCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripePaymentSheet/StripePaymentSheet.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripePayments/StripePayments.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripePaymentsUI/StripePaymentsUI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripeUICore/StripeUICore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftDrawer/SwiftDrawer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ExytePopupView/ExytePopupView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripeApplePay/StripeApplePay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripeCore/StripeCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripePaymentSheet/StripePaymentSheet.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripePayments/StripePayments.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripePaymentsUI/StripePaymentsUI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/StripeUICore/StripeUICore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftDrawer/SwiftDrawer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi

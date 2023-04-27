@@ -10,6 +10,7 @@ target 'Easyway' do
   pod 'Alamofire'
   pod 'lottie-ios'
   pod 'ExytePopupView'
+  pod 'StripePaymentSheet'
 
 
 end

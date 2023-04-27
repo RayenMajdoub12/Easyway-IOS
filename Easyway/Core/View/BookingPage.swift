@@ -6,20 +6,25 @@
 //
 
 import SwiftUI
+import StripePaymentSheet
 
 struct BookingPage: View {
     var gridformation :SeatFormation
+    var voyage : Voyage
     let seats :[Bool]
     let totalcolumns :Int
     @Environment(\.dismiss) var dismiss
 
-    init(gridformation: SeatFormation) {
+    init(gridformation: SeatFormation  ,voyage : Voyage) {
         self.gridformation = gridformation
+        self.voyage = voyage
         self.seats =   createMatriceViewItemTypes(seatFormation: gridformation)
         self.totalcolumns = gridformation.emptyRows.count+gridformation.fullRows
         print(self.totalcolumns)
         
     }
+    @State var selectedSeats = Set<Int>()
+
     var body: some View {
         VStack{
             Spacer()
@@ -45,12 +50,24 @@ struct BookingPage: View {
                 let columns = Array (repeating: GridItem(.fixed(35) , spacing: 10), count: totalcolumns)
             ScrollView(.vertical,showsIndicators: false){
                 LazyVGrid(columns: columns, spacing: 13, content: {
-                    ForEach(seats.indices,id: \.self) {index in
-                    
-                        SeatView(index:index,opacity: seats[index])
-                   
-                            
+             
+                    ForEach(seats.indices, id: \.self) { index in
+                        SeatView(
+                            index: index,
+                            opacity: seats[index],
+                            selected: self.selectedSeats.contains(index),
+                            available: voyage.available[index]
+                        )
+                        .onTapGesture {
+                             print("im in tap")
+                            if self.selectedSeats.contains(index) {
+                                self.selectedSeats.remove(index)
+                            } else {
+                                self.selectedSeats.insert(index)
+                            }
+                        }
                     }
+
                 }).padding()
                 
             }
@@ -62,17 +79,17 @@ struct BookingPage: View {
        
             HStack
             {        Spacer()
-                SeatView(index:10,opacity: true)
+                SeatView(index:10,opacity: true ,selected: false, available: true)
                     .padding(10)
                 Text("Available")
                     .font(.custom("Futura-Medium", size: 10, relativeTo: .headline))
                 Spacer()
 
-                SeatView(index:10,opacity: true).padding(10)
+                SeatView(index:10,opacity: true,selected: true, available: true).padding(10)
                 Text("Selected")
                     .font(.custom("Futura-Medium", size: 10, relativeTo: .headline))
                 Spacer()
-                SeatView(index:10,opacity: true)
+                SeatView(index:10,opacity: true ,selected: false,available:  false)
                     .padding(10)
                 Text("Booked")
                     .font(.custom("Futura-Medium", size: 10, relativeTo: .headline))
@@ -83,31 +100,67 @@ struct BookingPage: View {
                 VStack{
                     Text("Total Price:")
                         .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
-                    Text("250 TND")
+                    Text("\(String(format: "%.2f", (Double(selectedSeats.count) * voyage.economySeatPrice))) TND")
                         .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10)
                 }
                 Spacer()
                 VStack{
                 Text("Number of seats:")
                     .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
-                Text("5")
+                Text("\(selectedSeats.description)")
                     .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10) }
             }
             .padding()
-            Button(action:{
-                }
-            ,label: {Text("Purchase")
-                    .font(.custom(Fonts.Font1, size: 18))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .foregroundColor(.white)
-                    .background(Color(Colors.AccentDarkPink ))
-                    .cornerRadius(40)
-                    .padding(30)
-            })
+            CheckoutView(amount:Double(selectedSeats.count) * voyage.economySeatPrice)
             Spacer()
         }.background(.white)
         }
+    
+    struct CheckoutView: View {
+      @ObservedObject var model = MyBackendModel()
+        let amount:Double
+      var body: some View {
+        VStack {
+          if let paymentSheet = model.paymentSheet {
+            PaymentSheet.PaymentButton(
+              paymentSheet: paymentSheet,
+              onCompletion: model.onPaymentCompletion
+            ) {
+                Text("Purchase")
+                        .font(.custom(Fonts.Font1, size: 18))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .foregroundColor(.white)
+                        .background(Color(Colors.AccentDarkPink ))
+                        .cornerRadius(40)
+                        .padding(30)
+
+            }
+          } else {
+            Text("Loading…")
+                      .font(.custom(Fonts.Font1, size: 18))
+                      .frame(maxWidth: .infinity)
+                      .padding(.vertical, 16)
+                      .foregroundColor(.white)
+                      .background(Color(Colors.AccentDarkPink ))
+                      .cornerRadius(40)
+                      .padding(30)
+
+          }
+          if let result = model.paymentResult {
+            switch result {
+            case .completed:
+              Text("Payment complete")
+            case .failed(let error):
+              Text("Payment failed: \(error.localizedDescription)")
+            case .canceled:
+              Text("Payment canceled.")
+            }
+          }
+        }.onAppear { model.preparePaymentSheet(amount:amount) }
+      }
+    }
+
 }
 
 
@@ -115,10 +168,12 @@ struct BookingPage: View {
 struct SeatView: View {
     var index: Int
     var opacity : Bool
+    var selected : Bool
+    var available : Bool
     var body: some View{
         ZStack{
             RoundedRectangle (cornerRadius: 10)
-                .stroke(Color (Colors.ColorSecondary), lineWidth: 2)
+                .stroke(available == false ? Color (Colors.ColorPrimary):selected == true ? Color (Colors.AccentDarkPink) : Color (Colors.ColorSecondary), lineWidth: 2)
                 .frame (height: opacity == true ? 35 : 10)
                 .opacity(opacity == true ? 1 : 0	)
             Text(String(index))
@@ -156,9 +211,5 @@ func createMatriceViewItemTypes(seatFormation: SeatFormation) -> [Bool] {
     
 }
 
-struct BookingPage_Previews: PreviewProvider {
-    static var previews: some View {
-        let grid = SeatFormation()
-        BookingPage(gridformation: grid )
-    }
-}
+
+

@@ -11,9 +11,9 @@ import SwiftDrawer
 
 struct HomePage: View {
   @State var sheetIsPresented = false
-    @State var tracking:MapUserTrackingMode = .follow
-    @State private var route: MKRoute?
-    @State private var annotation:MKPointAnnotation?
+   // @State var tracking:MapUserTrackingMode = .follow
+    //@State private var route: MKRoute?
+    //@State private var annotation:MKPointAnnotation?
     @State var offset:CGFloat = 0
    
     var body: some View {
@@ -192,11 +192,10 @@ struct HomePage: View {
     }
     
     struct GetMeSomewhere: View {
-        @State private var from = "Current Location"
+        
+        @State private var from = ""
         @State private var to = ""
         @State private var showingVoyageView = false
-        
-
         var body: some View {
             
             Text("Where to go Today ?")
@@ -325,7 +324,7 @@ let mapView = MKMapView()
 }
 extension MapView {
     class MapCoordinator:NSObject,MKMapViewDelegate
-    {
+    {let searchmodel = LocationSearchModel()
         var userlocationCoordinate : CLLocationCoordinate2D?
         let parent:MapView
         init(parent: MapView) {
@@ -348,10 +347,34 @@ extension MapView {
             parent.mapView.removeAnnotations(parent.mapView.annotations)
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
+            
            parent.mapView.addAnnotation(annotation)
-           parent.mapView.selectAnnotation(annotation, animated: true)
+            //parent.mapView.selectAnnotation(annotation, animated: true)
+            
             parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
         }
+        func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+            if let title = annotation.title {
+                let alertController = UIAlertController(title: title, message: "Do you want to go to this location?", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alertController.addAction(UIAlertAction(title: "Go Now!", style: .default, handler: { _ in
+                  
+                    
+                //    self.searchmodel.userlocationTitle() HELPPPPPP
+                    
+                      
+                }))
+                if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+                    if let rootViewController = window.rootViewController {
+                        rootViewController.present(alertController, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+
+
+
+
         func configurePolyline(withDestinationCoordinate coordinate : CLLocationCoordinate2D)
 
         {

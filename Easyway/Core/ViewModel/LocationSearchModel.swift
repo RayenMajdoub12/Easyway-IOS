@@ -14,6 +14,7 @@ class LocationSearchModel:NSObject,ObservableObject
     @Published var selectedLocation:String?
     @Published var selectedLocationCoordinate: CLLocationCoordinate2D?
     @Published var results = [MKLocalSearchCompletion]()
+    let manager = LocationManager()
     private let searchCompleter = MKLocalSearchCompleter()
     var queryFragment:String = "" {
         didSet {
@@ -50,6 +51,24 @@ class LocationSearchModel:NSObject,ObservableObject
         
         search.start(completionHandler: completion)
     }
+
+    func userlocationTitle()->String{
+        var title :String = ""
+        let location = CLLocation(latitude:manager.userlocation!.latitude, longitude:manager.userlocation!.longitude)
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            guard let placemark = placemarks?.first else {
+                print("No location found.")
+                return
+            }
+            
+             title = placemark.name ?? ""
+   
+            print("Location title: \(title)")
+        }
+        return title
+    }
+    
+
 }
 extension LocationSearchModel : MKLocalSearchCompleterDelegate
 {
