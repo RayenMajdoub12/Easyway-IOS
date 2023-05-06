@@ -62,7 +62,8 @@ struct MyTicketsPage: View {
                         self.ticketList = try!result.get()
                         print(result)
                     case .failure(let error):
-                        self.ticketList = nil
+                        self
+                            .ticketList = nil
                         print("Error: \(error)")
                     }
                     
