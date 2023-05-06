@@ -54,11 +54,16 @@ struct SliderView : View, SliderProtocol {
                     self.drawerControl.show(type: type, isShow: false)
                     self.drawerControl.setMain(view: ProfilePage())
                 }
+                SliderCell(imgName: "ticket", title: "My tickets").onTapGesture {
+                    self.drawerControl.show(type: type, isShow: false)
+                    self.drawerControl.setMain(view: MyTicketsPage())
+                }
+                Spacer().padding(.bottom)
                 Divider()
                 
                 SliderCell(imgName: "gear", title: "Settings").onTapGesture {
      
-                }
+                }.padding(.bottom,40)
        
             }.padding(10)
             .background(.white)

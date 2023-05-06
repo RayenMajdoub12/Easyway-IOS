@@ -8,15 +8,15 @@
 import Foundation
 
 struct Reservation: Codable {
-    let id : String
-    let user: User
-    let seatNumbers: [Int]
-    let voyage: Voyage
-    let qr: String
-    let totalPrice: Double
+    var id : String
+    var user: User
+    var seatNumbers: [Int]
+    var voyage: Voyage
+    var qr: String
+    var totalPrice: Int
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "_id"
         case user
         case seatNumbers = "Seatnumbers"
         case voyage

@@ -63,7 +63,14 @@ struct BookingPage: View {
                             if self.selectedSeats.contains(index) {
                                 self.selectedSeats.remove(index)
                             } else {
-                                self.selectedSeats.insert(index)
+                                if voyage.available[index]
+                                {
+                                    self.selectedSeats.insert(index)
+                                }
+                               else
+                                {
+                                   print("already booked")
+                               }
                             }
                         }
                     }
@@ -114,7 +121,8 @@ struct BookingPage: View {
          
            if(selectedSeats.count * Int(voyage.economySeatPrice) > 1)
             {
-               CheckoutView(amount:selectedSeats.count * Int(voyage.economySeatPrice))
+        
+               CheckoutView(voyage: voyage.id  ,selectedSeats: $selectedSeats,seatprice:Int(voyage.economySeatPrice))
 
            }
      
@@ -126,15 +134,22 @@ struct BookingPage: View {
         }
     
     struct CheckoutView: View {
-      @ObservedObject var model = MyBackendModel()
-         var amount:Int
+      @StateObject var model = MyBackendModel()
+         var voyage:String
+        @Binding var selectedSeats : Set<Int>
         @State  var selecting = true
+      @State  var reservationid:String = ""
+        @State var showDetailReservation = false
+        let seatprice :Int
         var body: some View {
             VStack {
                 if selecting
                 {
                     Button(action: {
+             
                         selecting = false
+                        model.preparePaymentSheet(amount: (selectedSeats.count * seatprice),selectedSeats:selectedSeats,id_voyage:voyage)
+                   
                     }, label: {
                         
                         Text("Select")
@@ -165,7 +180,10 @@ struct BookingPage: View {
                                 .padding(30)
                             
                         }
-                    } else {
+                        
+                        
+                    }
+                    else {
                         Text("Loading…")
                             .font(.custom(Fonts.Font1, size: 18))
                             .frame(maxWidth: .infinity)
@@ -174,22 +192,22 @@ struct BookingPage: View {
                             .background(Color(Colors.AccentDarkPink ))
                             .cornerRadius(40)
                             .padding(30)
-                        
+       
                     }
+             
+              
                 }
+                
+         
             
-            
-          if let result = model.paymentResult {
-            switch result {
-            case .completed:
-              Text("Payment complete")
-            case .failed(let error):
-              Text("Payment failed: \(error.localizedDescription)")
-            case .canceled:
-              Text("Payment canceled.")
-            }
-          }
-        }.onAppear { model.preparePaymentSheet(amount:amount) }
+
+            }.onChange(of: model.reservationId, perform: {new in
+                showDetailReservation = true
+            })
+            .fullScreenCover(isPresented: $showDetailReservation, content: {
+                DetailsReservation(reservationid: model.reservationId)
+            })
+       
       }
     }
 

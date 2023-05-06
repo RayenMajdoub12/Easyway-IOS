@@ -53,6 +53,9 @@
 		E1BCAD2729E7BBAC00865A60 /* EditProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCAD2629E7BBAC00865A60 /* EditProfilePage.swift */; };
 		E1BCAD2929E7D21700865A60 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */; };
 		E1C0A85229CC767D00258D82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0A85129CC767D00258D82 /* User.swift */; };
+		E1CBA9DC2A05D20F00E3527E /* DetailsReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBA9DB2A05D20F00E3527E /* DetailsReservation.swift */; };
+		E1CBA9DE2A05D49500E3527E /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBA9DD2A05D49500E3527E /* ReservationModel.swift */; };
+		E1CBA9E02A06064E00E3527E /* MyTicketsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBA9DF2A06064E00E3527E /* MyTicketsPage.swift */; };
 		E1EFBD9629D259B000576B6C /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9529D259B000576B6C /* Vehicle.swift */; };
 		E1EFBD9829D25A2400576B6C /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9729D25A2400576B6C /* Voyage.swift */; };
 		E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9929D25B7400576B6C /* SeatFormation.swift */; };
@@ -116,6 +119,9 @@
 		E1BCAD2629E7BBAC00865A60 /* EditProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePage.swift; sourceTree = "<group>"; };
 		E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		E1C0A85129CC767D00258D82 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1CBA9DB2A05D20F00E3527E /* DetailsReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsReservation.swift; sourceTree = "<group>"; };
+		E1CBA9DD2A05D49500E3527E /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		E1CBA9DF2A06064E00E3527E /* MyTicketsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsPage.swift; sourceTree = "<group>"; };
 		E1EFBD9529D259B000576B6C /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		E1EFBD9729D25A2400576B6C /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
 		E1EFBD9929D25B7400576B6C /* SeatFormation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFormation.swift; sourceTree = "<group>"; };
@@ -195,6 +201,8 @@
 				E16FBF0429DE668500347EC0 /* ProfilePage.swift */,
 				E1BCAD2629E7BBAC00865A60 /* EditProfilePage.swift */,
 				E10430FF29ECBA8F00E60A04 /* BookingPage.swift */,
+				E1CBA9DB2A05D20F00E3527E /* DetailsReservation.swift */,
+				E1CBA9DF2A06064E00E3527E /* MyTicketsPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 				E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */,
 				E140955629F8AEC900C61D3D /* LocationSearchModel.swift */,
 				E100293829FA017C009DB48C /* PaymentModel.swift */,
+				E1CBA9DD2A05D49500E3527E /* ReservationModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 				E1EFBDAA29D26AA600576B6C /* ReservationController.swift in Sources */,
 				E1B896B429CE544600E07462 /* UserController.swift in Sources */,
 				E13F3BBD29C1EFFA0091D1A9 /* Persistence.swift in Sources */,
+				E1CBA9DE2A05D49500E3527E /* ReservationModel.swift in Sources */,
 				E13AF4B029C2509A008DB2F0 /* HomePage.swift in Sources */,
 				E1BCAD2929E7D21700865A60 /* EditProfileModel.swift in Sources */,
 				E10430FE29ECAFA100E60A04 /* RoundedCorner.swift in Sources */,
@@ -459,6 +469,7 @@
 				E104310329ECCAA200E60A04 /* SeatShaperLayer.swift in Sources */,
 				E10430F129ECAEC700E60A04 /* TicketDetailMainView.swift in Sources */,
 				E13F3BB429C1EFF90091D1A9 /* EasywayApp.swift in Sources */,
+				E1CBA9E02A06064E00E3527E /* MyTicketsPage.swift in Sources */,
 				E13F3BC029C1EFFA0091D1A9 /* Easyway.xcdatamodeld in Sources */,
 				E1EFBDA629D268D700576B6C /* VoyageModel.swift in Sources */,
 				E13AF4A829C21CA0008DB2F0 /* LoginPage.swift in Sources */,
@@ -469,6 +480,7 @@
 				E10430F829ECAF5100E60A04 /* BlockView.swift in Sources */,
 				E1EFBD9829D25A2400576B6C /* Voyage.swift in Sources */,
 				E10430FC29ECAF8A00E60A04 /* LineShape.swift in Sources */,
+				E1CBA9DC2A05D20F00E3527E /* DetailsReservation.swift in Sources */,
 				E13AF4AE29C248D0008DB2F0 /* RegisterModel.swift in Sources */,
 				E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */,
 				E16590EF29C322CA005F981D /* CodeVerifPage.swift in Sources */,
