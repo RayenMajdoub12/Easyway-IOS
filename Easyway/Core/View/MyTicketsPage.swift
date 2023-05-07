@@ -112,6 +112,7 @@ struct MyTicketsPage: View {
                         .font(.caption2)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
+                    
                 }
             }
             .frame(maxWidth: .infinity)

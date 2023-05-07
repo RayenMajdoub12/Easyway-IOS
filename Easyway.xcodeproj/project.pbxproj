@@ -56,6 +56,8 @@
 		E1CBA9DC2A05D20F00E3527E /* DetailsReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBA9DB2A05D20F00E3527E /* DetailsReservation.swift */; };
 		E1CBA9DE2A05D49500E3527E /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBA9DD2A05D49500E3527E /* ReservationModel.swift */; };
 		E1CBA9E02A06064E00E3527E /* MyTicketsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBA9DF2A06064E00E3527E /* MyTicketsPage.swift */; };
+		E1D345842A080BB000C0FF89 /* ScannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D345832A080BB000C0FF89 /* ScannerPage.swift */; };
+		E1D345872A08102C00C0FF89 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = E1D345862A08102C00C0FF89 /* CodeScanner */; };
 		E1EFBD9629D259B000576B6C /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9529D259B000576B6C /* Vehicle.swift */; };
 		E1EFBD9829D25A2400576B6C /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9729D25A2400576B6C /* Voyage.swift */; };
 		E1EFBD9A29D25B7400576B6C /* SeatFormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFBD9929D25B7400576B6C /* SeatFormation.swift */; };
@@ -122,6 +124,7 @@
 		E1CBA9DB2A05D20F00E3527E /* DetailsReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsReservation.swift; sourceTree = "<group>"; };
 		E1CBA9DD2A05D49500E3527E /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		E1CBA9DF2A06064E00E3527E /* MyTicketsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketsPage.swift; sourceTree = "<group>"; };
+		E1D345832A080BB000C0FF89 /* ScannerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerPage.swift; sourceTree = "<group>"; };
 		E1EFBD9529D259B000576B6C /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		E1EFBD9729D25A2400576B6C /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
 		E1EFBD9929D25B7400576B6C /* SeatFormation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFormation.swift; sourceTree = "<group>"; };
@@ -139,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D345872A08102C00C0FF89 /* CodeScanner in Frameworks */,
 				8D9004D95C12904477B17FBD /* Pods_Easyway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +207,7 @@
 				E10430FF29ECBA8F00E60A04 /* BookingPage.swift */,
 				E1CBA9DB2A05D20F00E3527E /* DetailsReservation.swift */,
 				E1CBA9DF2A06064E00E3527E /* MyTicketsPage.swift */,
+				E1D345832A080BB000C0FF89 /* ScannerPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +358,9 @@
 			dependencies = (
 			);
 			name = Easyway;
+			packageProductDependencies = (
+				E1D345862A08102C00C0FF89 /* CodeScanner */,
+			);
 			productName = Easyway;
 			productReference = E13F3BB029C1EFF90091D1A9 /* Easyway.app */;
 			productType = "com.apple.product-type.application";
@@ -381,6 +389,9 @@
 				Base,
 			);
 			mainGroup = E13F3BA729C1EFF90091D1A9;
+			packageReferences = (
+				E1D345852A08102C00C0FF89 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = E13F3BB129C1EFF90091D1A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -495,6 +506,7 @@
 				E1F2C11329D634BA00CBC5B2 /* TicketListPage.swift in Sources */,
 				E1BCAD2729E7BBAC00865A60 /* EditProfilePage.swift in Sources */,
 				E16FBF0529DE668500347EC0 /* ProfilePage.swift in Sources */,
+				E1D345842A080BB000C0FF89 /* ScannerPage.swift in Sources */,
 				E140955429F874AF00C61D3D /* LocationManager.swift in Sources */,
 				E10430F629ECAF2100E60A04 /* TicketDetailView.swift in Sources */,
 				E16590F929C33580005F981D /* Drawer.swift in Sources */,
@@ -709,6 +721,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1D345852A08102C00C0FF89 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1D345862A08102C00C0FF89 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1D345852A08102C00C0FF89 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E13F3BBE29C1EFFA0091D1A9 /* Easyway.xcdatamodeld */ = {

@@ -11,7 +11,6 @@ target 'Easyway' do
   pod 'lottie-ios'
   pod 'ExytePopupView'
   pod 'StripePaymentSheet'
-
-
+ 
 end
 	

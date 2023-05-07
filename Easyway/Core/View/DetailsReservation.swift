@@ -84,7 +84,7 @@ struct DetailsReservation: View {
                 VStack {
                     Text("QR Code:")
                         .font(.headline)
-                    Image(uiImage: generateQRCode(from: reservation.qr))
+                    Image(uiImage: generateQRCode(from: reservation.id))
                         .interpolation(.none)
                         .resizable()
                         .scaledToFit()

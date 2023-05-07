@@ -58,6 +58,14 @@ struct SliderView : View, SliderProtocol {
                     self.drawerControl.show(type: type, isShow: false)
                     self.drawerControl.setMain(view: MyTicketsPage())
                 }
+                if userdefaults.string(forKey: "role") == "EMPLOYEE_ROLE"
+                {
+                    SliderCell(imgName: "qrcode.viewfinder", title: "Scan tickets").onTapGesture {
+                    self.drawerControl.show(type: type, isShow: false)
+                    self.drawerControl.setMain(view: ScannerPage())
+                }
+                    
+                }
                 Spacer().padding(.bottom)
                 Divider()
                 
