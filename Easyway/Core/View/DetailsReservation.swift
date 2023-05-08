@@ -130,6 +130,7 @@ struct DetailsReservation: View {
                         .background(Color(Colors.ColorSecondary ))
                         .cornerRadius(40)
                         .padding(30)})      }  }
+        .padding(30)
         Spacer()
         
         .background(Color(Colors.ColorLightGrey))

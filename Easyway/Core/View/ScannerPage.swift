@@ -11,6 +11,7 @@ struct ScannerPage: View {
     @State  var isPresentingScanner = false
     @State var codedata:String = ""
     @State var reservation:Reservation?
+    @State var validticket:String = ""
     @StateObject var viewmodelReservation = ReservationModel()
     private func formatDate(_ dateString: String) -> String {
         let formatter = DateFormatter()
@@ -46,8 +47,10 @@ struct ScannerPage: View {
                     ress in
                     switch ress {
                     case .success(let res):
+                        self.validticket = "Valid Ticket"
                         self.reservation = res
                     case .failure(let error):
+                        self.validticket = "Ticket is not valid"
                         self.reservation = nil
                         print(error)
                     }
@@ -128,20 +131,24 @@ struct ScannerPage: View {
                             Text("$\(reservation.totalPrice)")
                                 .font(.headline)
                         }
-                        Text("Valid Ticket")
-                            .font(.custom(Fonts.Font1, size: 22))
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 16)
-                            .foregroundColor(Color(Colors.ColorPrimary ))
-                            .padding(30)
+             
                     }.padding(30)
                      
                     
                 }
               else
-                {Image( "scanner")
-                      .resizable()
-                      .frame(width:350 ,height: 350)
+                {
+                  Text(validticket)
+                      .font(.custom(Fonts.Font1, size: 22))
+                      .frame(maxWidth: .infinity)
+                      .padding(.vertical, 16)
+                      .foregroundColor(validticket == "Valid Ticket" ? Color(Colors.ColorPrimary): Color(Colors.AccentDarkPink))
+                      .padding(30)
+                 if validticket == ""
+                  {Image( "scanner")
+                         .resizable()
+                         .frame(width:350 ,height: 350)
+                 }
                   Text("Scan the QR Code in the ticket to validate it!")
                   Button ("Scan"){
                       self.isPresentingScanner = true

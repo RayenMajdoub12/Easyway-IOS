@@ -17,7 +17,7 @@ struct Reservation: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case user
+        case user = "user"
         case seatNumbers = "Seatnumbers"
         case voyage
         case qr

@@ -22,7 +22,7 @@ class RegisterModel: ObservableObject {
     
     func Register(completion: @escaping (Result<String, Error>) -> Void)
     {
-        UserController.shared.signup(user: User(id:"0",username:username,email:email,password:password)){ [weak self] result in
+        UserController.shared.signup(user: User(id:"0",username:username,email:email,password:password , role: "USER_ROLE")){ [weak self] result in
         DispatchQueue.main.async {
             switch result {
             case .success(let message):
