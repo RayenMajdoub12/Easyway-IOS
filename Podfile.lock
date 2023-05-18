@@ -2,6 +2,9 @@ PODS:
   - Alamofire (5.6.4)
   - ExytePopupView (2.1.3)
   - lottie-ios (4.1.3)
+  - Socket.IO-Client-Swift (16.0.1):
+    - Starscream (~> 4.0)
+  - Starscream (4.0.4)
   - StripeApplePay (23.7.0):
     - StripeCore (= 23.7.0)
   - StripeCore (23.7.0)
@@ -27,6 +30,7 @@ DEPENDENCIES:
   - Alamofire
   - ExytePopupView
   - lottie-ios
+  - Socket.IO-Client-Swift
   - StripePaymentSheet
   - SwiftDrawer
 
@@ -35,6 +39,8 @@ SPEC REPOS:
     - Alamofire
     - ExytePopupView
     - lottie-ios
+    - Socket.IO-Client-Swift
+    - Starscream
     - StripeApplePay
     - StripeCore
     - StripePayments
@@ -47,6 +53,8 @@ SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   ExytePopupView: 492c70b7a741a0bdadbb827708659ce5ad670235
   lottie-ios: d0954d3150061f662ed0adf96ef98d7421864c47
+  Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
   StripeApplePay: b05917d11c0846ca3e2f67e59bf027efd1fe2195
   StripeCore: bec0c90f6e153abeba70f015be25e17fada10084
   StripePayments: faafc7e868e224aba8ff9d9c3833c17dde909f42
@@ -55,6 +63,6 @@ SPEC CHECKSUMS:
   StripeUICore: f940d7e6908ba241380f25bf7062919890dd81e2
   SwiftDrawer: 2ed1b1e13fa46323bb04b6cc417c05edf51b1b4a
 
-PODFILE CHECKSUM: 0cd2e2fce9fd9f79cd2d2901a0b11c6201e69027
+PODFILE CHECKSUM: ab34e7a3980687d5c355308d54455dffc5f98f4a
 
 COCOAPODS: 1.11.3

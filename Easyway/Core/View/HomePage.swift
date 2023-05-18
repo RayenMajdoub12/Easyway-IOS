@@ -73,6 +73,9 @@ struct HomePage: View {
         @State var searchtext = ""
         @Binding var selectsheet:Int
         @EnvironmentObject var searchviewModel : LocationSearchModel
+        @State var showhomeAlert  = false
+        @State var showworkAlert  = false
+
         var body: some View {
             
             HStack(spacing: 15)
@@ -88,61 +91,100 @@ struct HomePage: View {
                     .cornerRadius(15)
                     .padding()
             }
-            HStack{
-                Button(
-                    action: {
-                        self.selectsheet = 1
-                    })
-                {
-                    VStack{
-                        LottieView (name: LottieNames.navigate_points, loopMode:
-                                .loop)
-                        .frame(width: 80,height: 80)
-                        .scaleEffect(0.3)
-                        .offset(x:-20)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack{
+                    Button(
+                        action: {
+                            self.selectsheet = 1
+                        })
+                    {
+                        VStack{
+                            LottieView (name: LottieNames.navigate_points, loopMode:
+                                    .loop)
+                            .frame(width: 80,height: 80)
+                            .scaleEffect(0.3)
+                            .offset(x:-20)
+                            
+                            Text("Get me \nsomwhere")
+                                .font(.custom(Fonts.Font1, size: 20))
+                                .padding(.vertical, 18)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment( .leading)
+                                .offset(x:-25)
+                            
+                        }
+                        .frame(width: 200, height: 200)
+                        .background(Color(Colors.ColorPrimary).opacity(0.9))
+                        .cornerRadius(20)
+                        .padding(5)
                         
-                        Text("Get me \nsomwhere")
-                            .font(.custom(Fonts.Font1, size: 20))
-                            .padding(.vertical, 18)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment( .leading)
-                            .offset(x:-25)
+                        
+                        
                         
                     }
-                    .frame(width: 200, height: 200)
-                    .background(Color(Colors.ColorPrimary).opacity(0.9))
-                    .cornerRadius(20)
-                    .padding(5)
-                    
-                    
-                    
-                    
-                }
-                Button(
-                    action: {
-                        print("hello")
-                    })
-                {
-                    VStack{
-                        LottieView (name: LottieNames.home, loopMode:
-                                .loop)
-                        .frame(width: 80,height: 80)
-                        .scaleEffect(0.25)
-                        .offset(x:-20)
-                        
-                        
-                        Text("Home")
-                            .font(.custom(Fonts.Font1, size: 20))
-                            .padding(.vertical, 18)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment( .leading)
-                            .offset(x:-10)
-                        
-                    }
-                    .frame(width: 150, height: 200)
-                    .background(Color(Colors.Blue).opacity(0.9))
-                    .cornerRadius(20)
-                    .padding(5)
+                    Button(
+                        action: {
+                            showhomeAlert = true
+                            
+                        })
+                    {
+                        VStack{
+                            LottieView (name: LottieNames.home, loopMode:
+                                    .loop)
+                            .frame(width: 80,height: 80)
+                            .scaleEffect(0.25)
+                            .offset(x:-20)
+                            
+                            
+                            Text("Home")
+                                .font(.custom(Fonts.Font1, size: 20))
+                                .padding(.vertical, 18)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment( .leading)
+                                .offset(x:-10)
+                            
+                        }
+                        .frame(width: 150, height: 200)
+                        .background(Color(Colors.Blue).opacity(0.9))
+                        .cornerRadius(20)
+                        .padding(5)
+                    } .alert(isPresented: $showhomeAlert) {
+                        Alert(title: Text("Home adress"), message: Text((UserDefaults.standard.string(forKey: "home") != nil) ? "You have to add your home adress":"Go to \(UserDefaults.standard.string(forKey: "home")!) "), primaryButton: .destructive(Text("OK").foregroundColor(.red))
+                              {
+           
+                                },secondaryButton: .cancel(Text("Cancel")))
+                              }
+                    Button(
+                        action: {
+                             showworkAlert = true
+                        })
+                    {
+                        VStack{
+                            LottieView (name: LottieNames.home, loopMode:
+                                    .loop)
+                            .frame(width: 80,height: 80)
+                            .scaleEffect(0.25)
+                            .offset(x:-20)
+                            
+                            
+                            Text("Work")
+                                .font(.custom(Fonts.Font1, size: 20))
+                                .padding(.vertical, 18)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment( .leading)
+                                .offset(x:-10)
+                            
+                        }
+                        .frame(width: 150, height: 200)
+                        .background(Color(Colors.yellow).opacity(0.9))
+                        .cornerRadius(20)
+                        .padding(5)
+                    }.alert(isPresented: $showworkAlert) {
+                        Alert(title: Text((UserDefaults.standard.string(forKey: "work") != nil) ? "Go to \(UserDefaults.standard.string(forKey: "work")!)":"You have to add your work adress"), message: Text("You are about to save new informations !"), primaryButton: .destructive(Text("OK").foregroundColor(.red))
+                              {
+           
+                                },secondaryButton: .cancel(Text("Cancel")))
+                              }
                 }
             }
             

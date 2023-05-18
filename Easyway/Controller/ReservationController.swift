@@ -7,17 +7,18 @@
 
 import Foundation
 import Alamofire
+
 class ReservationController {
     static let shared = ReservationController()
     let  userdefaults = UserDefaults.standard
 
     private let baseUrl = "\(Shared.sharedBaseUrl)/reservation/" // Replace with your server URL
-    func reserver(id_voyage:String,selectedSeats : Set<Int>,amount:Int, completion: @escaping (Result<String, Error>) -> Void) {
+    func reserver(id_voyage:String, selectedSeats : Set<Int>, amount:Int, completion: @escaping (Result<String, Error>) -> Void) {
         print(selectedSeats)
         print(amount)
-        let  user = userdefaults.string(forKey: "email")!
-        print(user)
         
+        let user = UserDefaults.standard.string(forKey: "email")!
+
         AF.request(baseUrl,
                    method: .post,
                    parameters: ["Seatnumbers": Array(selectedSeats) ,"user":user,"voyage":id_voyage,"totaleprice":amount],
@@ -34,14 +35,13 @@ class ReservationController {
                         print("im in error ")
                         let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Response serialization failed"])
                         completion(.failure(error))
-
-
                     }
                 case .failure(let error):
                     completion(.failure(error))
                 }
             }
     }
+
     func getReservation(idRes:String ,completion: @escaping (Result<Reservation, Error>) -> Void)
     {
         let url = "\(baseUrl)find/\(idRes)"

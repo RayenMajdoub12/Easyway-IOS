@@ -12,6 +12,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>We need the camera to scan QR codes .</string>
+	<key> FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow access to location ?</string>
 </dict>

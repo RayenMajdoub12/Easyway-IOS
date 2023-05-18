@@ -50,6 +50,7 @@
 		E17183E629D3A68600FC625E /* LottieNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17183E529D3A68600FC625E /* LottieNames.swift */; };
 		E17183E829D3A81F00FC625E /* home_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = E17183E729D3A81F00FC625E /* home_anim.json */; };
 		E1B896B429CE544600E07462 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B896B329CE544600E07462 /* UserController.swift */; };
+		E1BC4F982A1679E2000664A9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BC4F972A1679E2000664A9 /* NotificationManager.swift */; };
 		E1BCAD2729E7BBAC00865A60 /* EditProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCAD2629E7BBAC00865A60 /* EditProfilePage.swift */; };
 		E1BCAD2929E7D21700865A60 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */; };
 		E1C0A85229CC767D00258D82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C0A85129CC767D00258D82 /* User.swift */; };
@@ -118,6 +119,7 @@
 		E17183E529D3A68600FC625E /* LottieNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieNames.swift; sourceTree = "<group>"; };
 		E17183E729D3A81F00FC625E /* home_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_anim.json; sourceTree = "<group>"; };
 		E1B896B329CE544600E07462 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		E1BC4F972A1679E2000664A9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E1BCAD2629E7BBAC00865A60 /* EditProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePage.swift; sourceTree = "<group>"; };
 		E1BCAD2829E7D21700865A60 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		E1C0A85129CC767D00258D82 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				E140955629F8AEC900C61D3D /* LocationSearchModel.swift */,
 				E100293829FA017C009DB48C /* PaymentModel.swift */,
 				E1CBA9DD2A05D49500E3527E /* ReservationModel.swift */,
+				E1BC4F972A1679E2000664A9 /* NotificationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				E1EFBDA629D268D700576B6C /* VoyageModel.swift in Sources */,
 				E13AF4A829C21CA0008DB2F0 /* LoginPage.swift in Sources */,
 				E104310029ECBA8F00E60A04 /* BookingPage.swift in Sources */,
+				E1BC4F982A1679E2000664A9 /* NotificationManager.swift in Sources */,
 				E13AF4AA29C21F86008DB2F0 /* LoginModel.swift in Sources */,
 				E10430F429ECAF0700E60A04 /* TicketDetailTopView.swift in Sources */,
 				E1C0A85229CC767D00258D82 /* User.swift in Sources */,

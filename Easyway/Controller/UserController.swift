@@ -26,10 +26,11 @@ class UserController {
             switch response.result {
             case .success(let value):
                 
-                if let dict = value as? [String: Any], let token = dict["token"] as? String, let username = dict["username"] as? String, let role = dict["role"] as? String{
+                if let dict = value as? [String: Any], let token = dict["token"] as? String, let username = dict["username"] as? String, let role = dict["role"] as? String, let id = dict["id"] as? String{
                     // Save the token to UserDefaults
                     print(username)
                     print(parameters)
+                    UserDefaults.standard.set(id, forKey: "id")
                     UserDefaults.standard.set(token, forKey: "jwtToken")
                     UserDefaults.standard.set(username, forKey: "username")
                     UserDefaults.standard.set(email, forKey: "email")
