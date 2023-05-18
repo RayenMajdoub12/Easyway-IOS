@@ -105,10 +105,25 @@ struct BookingPage: View {
            Divider()
             HStack{
                 VStack{
-                    Text("Total Price:")
-                        .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
-                    Text("\(String(format: "%.2f", (Double(selectedSeats.count) * voyage.economySeatPrice))) TND")
-                        .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10)
+                   
+                    if(UserDefaults.standard.string(forKey: "role") == "EMPLOYEE_ROLE")
+                    { Text("Total Price: %25 Discount")
+                            .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
+                        HStack{
+                            Text("\(String(format: "%.2f", (Double(selectedSeats.count) * voyage.economySeatPrice))) TND")
+                                .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10).strikethrough().foregroundColor(.red)
+                            Text("\(String(format: "%.2f", (Double(selectedSeats.count) * voyage.economySeatPrice * 0.75))) TND ")
+                                .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10).foregroundColor(.green)
+                        }
+                    
+                    }
+                    else{
+                        Text("Total Price:")
+                            .font(.custom("Futura-Medium", size: 14, relativeTo: .headline)).padding(10)
+                        Text("\(String(format: "%.2f", (Double(selectedSeats.count) * voyage.economySeatPrice))) TND")
+                            .font(.custom("Futura-Medium", size: 16, relativeTo: .headline)).padding(10)
+                    }
+                    
                 }
                 Spacer()
                 VStack{
@@ -148,7 +163,15 @@ struct BookingPage: View {
                     Button(action: {
              
                         selecting = false
-                        model.preparePaymentSheet(amount: (selectedSeats.count * seatprice),selectedSeats:selectedSeats,id_voyage:voyage)
+                        if(UserDefaults.standard.string(forKey: "role") == "EMPLOYEE_ROLE")
+                        {
+                            model.preparePaymentSheet(amount: (Double(selectedSeats.count) * Double(seatprice) * 0.75),selectedSeats:selectedSeats,id_voyage:voyage)
+
+                        }else
+                        {
+                            model.preparePaymentSheet(amount: Double((selectedSeats.count * seatprice)),selectedSeats:selectedSeats,id_voyage:voyage)
+
+                        }
                    
                     }, label: {
                         

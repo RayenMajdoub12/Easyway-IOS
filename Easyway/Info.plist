@@ -16,5 +16,15 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow access to location ?</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+    		<key>NSAllowsArbitraryLoads</key>
+   	 	<true/>
+	</dict>
+
+
+
+
+
 </dict>
 </plist>

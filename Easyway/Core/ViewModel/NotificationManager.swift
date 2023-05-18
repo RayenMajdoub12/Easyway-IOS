@@ -8,6 +8,7 @@
 import Foundation
 import SocketIO
 class SocketIOManager: ObservableObject {
+    
     static let shared = SocketIOManager()
     private var socket: SocketIOClient!
 
@@ -16,7 +17,7 @@ class SocketIOManager: ObservableObject {
     }
     
     private func configureSocketConnection() {
-        let manager = SocketManager(socketURL: URL(string: "ws://172.17.4.157:3001")!, config: [.log(true), .compress])
+        let manager = SocketManager(socketURL: URL(string: "http://172.17.4.157:3001")!, config: [.log(true), .compress])
         socket = manager.defaultSocket 
 
         socket.on(clientEvent: .connect) {data, ack in

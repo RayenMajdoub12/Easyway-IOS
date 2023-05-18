@@ -20,10 +20,10 @@ class MyBackendModel: ObservableObject {
   var amount: Int = 0
     
     
-  func preparePaymentSheet( amount :Int , selectedSeats:Set<Int>,id_voyage:String) {
+  func preparePaymentSheet( amount :Double , selectedSeats:Set<Int>,id_voyage:String) {
       self.id_voyage = id_voyage
       self.selectedSeats = selectedSeats
-      self.amount = amount
+      self.amount = Int(amount)
       let backendCheckoutUrl = URL(string:"\(Shared.sharedBaseUrl)/payement/payment-sheet/\(amount)")!
     var request = URLRequest(url: backendCheckoutUrl)
     request.httpMethod = "POST"
